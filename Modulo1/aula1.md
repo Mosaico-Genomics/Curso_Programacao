@@ -18,7 +18,13 @@ Estrutura básica de um comando do SED. Por padrão, o resultado da operação �
 sed 'comando' input_file > output_file
 ```
 
-Desta vez, o resultado da operação estipulada pelo ` comando` sobre o arquivo `input_file` será redirecionado para um arquivo `output_file`. Obs.: Este arquivo será criado contendo a saída do comando `sed` e sobrescreverá em outro com mesmo nome sem confirmação.
+Desta vez, o resultado da operação estipulada pelo ` comando` sobre o arquivo `input_file` será redirecionado para um arquivo `output_file`. Obs.: Este arquivo será criado contendo a saída do comando `sed` e sobrescreverá em outro com mesmo nome sem confirmação. 
+
+Se nenhum arquivo de entrada for fornecido, o `sed` busca pela entrada padrão, o que permite encadeamento de comandos. 
+
+```bash
+cat input_file | sed 'comando' > output_file
+```
 
 ### Slide 10
 
@@ -50,7 +56,15 @@ sed 's/T/U/g' dna.txt
 
 **todas as ocorrências** de `T` por `U` em todas as linhas.
 
+### Slide 14
 
+```bash
+sed '/nao_essencial/d' aa_codons.txt
+```
+
+O comando acima remove `d` (*delete*) as **linhas** que contenham o padrão `nao_essencial`.  
+
+### Slide 16
 
 
 
