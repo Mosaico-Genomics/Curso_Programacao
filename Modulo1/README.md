@@ -1,2 +1,2 @@
-# Modulo 1
+# Módulo 1
 O módulo SED/AWK E VCFTools é qualificar o profissional com um perfil mais voltado para ciências biológicas a manipular e editar tabelas e arquivos de dados genéticos de forma simples e direta através do SED and AWK. Apresentaremos os principais formatos de arquivos de dados genéticos utilizados atualmente (.fasta, .fastq, .sam, .bam, .gtf, .ped/map, .vcf) e bancos de dados de anotação genômica clínica (ClinVar e ANNOVAR). Nosso curso também abordará a gestão de arquivos VCF através da ferramenta VCFTools. No nosso módulo realizamos atividades práticas através da resolução de exercícios em um servidor remoto com auxílio de monitores qualificados atuantes na área de Medicina Genômica.
