@@ -161,10 +161,18 @@ O comando acima irá transliterar, ou seja, substituir por mapeamento os caracte
 
 **Atente-se que:**
 
-*  O número de caracteres na lista fonte e de destino deve ser igual;
-* A transliteração não corresponde a cadeia de caracteres como um todo, mas sim caractere a caractere.
+*  O número de caracteres na lista fonte e de destino **deve ser igual**;
+* A transliteração **não** corresponde a cadeia de caracteres como um todo, mas sim caractere a caractere.
 
-7. Negação de correspondências
+Para negar uma correspondência, o ponto de exclamação `!` é utilizado. Veja um exemplo:
 
+```bash
+sed '/>/!y/ACTG/actg/' fasta.fa
+```
 
+Para todas as linhas **não** contendo `/>/!`
+transliterar `ACTG` por `actg`.
+
+O comando acima omitindo o `!`seria para **apenas** as linhas contendo >  `/>/`. 
+Sem a parte inicial, isto é, removendo `/>/!` o comando seria executado em **todas** as linhas do arquivo.
 
