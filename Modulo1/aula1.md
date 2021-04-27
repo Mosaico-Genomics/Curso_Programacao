@@ -215,9 +215,7 @@ s/ATG/*ATG*/g
 ```
 
 No primeiro bloco de código, um arquivo `script.sed` é criado no diretório de trabalho e, em seguida, aberto com o editor de texto `nano`.  
-
 O segundo bloco contém o conteúdo do *script* sed com os 2 comandos desejados. Veja que eles são separados por quebras de linha.
-
 O próximo bloco invoca o sed com o argumento `-f`, seguido do arquivo `.sed` <sup>[1](#myfootnote1)</sup> contendo os comandos. 
 
 ```bash
