@@ -113,7 +113,7 @@ Neste caso, 3 comandos de remoção são executados sequencialmente. Desta forma
 
 ### Slide 22
 
-4. **Imprimir linhas específicas**
+4. **Imprimir linhas específicas através de correspondência **  
 
 ```bash
 sed -n '/>/p' fasta.fa
@@ -121,13 +121,50 @@ sed -n '/>/p' fasta.fa
 
 Por padrão o sed imprime na tela o resultado dos comandos. Todavia, quando se deseja **imprimir linhas específicas**, isso deve ser desativado com a opção `-n` (ou `--silent` ou `--quiet`). Em seguida, o comando busca por linhas contendo o caractere `>`, que se encontrado, `p` imprime a linha.
 
+Neste exemplo, apenas as linhas com os nomes das sequências de um arquivo `.fa` são impressas.
 
+### Slide 24
 
- 
+5. **Imprimir linhas por índice ou posição**
 
- 
+Conforme visto anteriormente, a impressão de linhas específicas pode também ser especificada utilizando as posições/índices ou intervalos.
 
+```bash
+sed -n '1p' aa_codons.txt
+```
 
+Imprime `p` **apenas** a primeira linha `1`do arquivo `aa_codons.txt`.
+
+```bash
+sed -n '1,7p' aa_codons.txt
+```
+
+  Imprime **apenas** as linhas da 1 a 7 do arquivo, i.e, linhas ${1,2,3,4,5,6~\text{e}~7}$.
+
+``` bash
+sed -n '1p;7p' aa_codons.txt
+```
+
+ Imprime **apenas** as linhas 1 **E** 7 do arquivo.
+
+### Slide 26
+
+6. **Transliteração**
+
+O argumento `y/` faz a transliteração dos caracteres da cadeia fonte pela cadeia de destino. Em termos mais simples, ele possibilita trocar caracteres e padrões.
+
+```bash
+sed 'y/ACTG/actg/' fasta.fa
+```
+
+O comando acima irá transliterar, ou seja, substituir por mapeamento os caracteres **fonte** (`ACTG`) pelos caracteres de **destino** `actg`.  
+
+**Atente-se que:**
+
+*  O número de caracteres na lista fonte e de destino deve ser igual;
+* A transliteração não corresponde a cadeia de caracteres como um todo, mas sim caractere a caractere.
+
+7. Negação de correspondências
 
 
 
