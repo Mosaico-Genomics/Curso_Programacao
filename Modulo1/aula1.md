@@ -218,10 +218,10 @@ No primeiro bloco de código, um arquivo `script.sed` é criado no diretório de
 
 O segundo bloco contém o conteúdo do *script* sed com os 2 comandos desejados. Veja que eles são separados por quebras de linha.
 
-O próximo bloco invoca o sed com o argumento `-f`, seguido do arquivo `.sed`[^1] contendo os comandos. 
+O próximo bloco invoca o sed com o argumento `-f`, seguido do arquivo `.sed` <sup>[1](#myfootnote1)</sup> contendo os comandos. 
 
 ```bash
 sed -f script.sed fasta.fa
 ```
 
-[^1]: A extensão .sed não é obrigatória.
+<a name="myfootnote1">1</a>: A extensão `.sed` não é obrigatória.
