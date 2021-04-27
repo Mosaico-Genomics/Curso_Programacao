@@ -8,6 +8,8 @@ Neste documento estão disponíveis os códigos demonstrados nos slides da aula 
 
 ### Slide 5
 
+1. **Estrutura básica**
+
 ```bash
 sed 'comando' input_file
 ```
@@ -27,6 +29,8 @@ cat input_file | sed 'comando' > output_file
 ```
 
 ### Slide 10
+
+2. **Substituição**
 
 ```bash
 sed 's/DNA/RNA/' texto.txt
@@ -58,13 +62,54 @@ sed 's/T/U/g' dna.txt
 
 ### Slide 14
 
+3. **Deleção de linhas**
+
 ```bash
 sed '/nao_essencial/d' aa_codons.txt
 ```
 
-O comando acima remove `d` (*delete*) as **linhas** que contenham o padrão `nao_essencial`.  
+O comando acima remove `d` (*delete*) as **linhas** que contenham o padrão `nao_essencial`. 
 
 ### Slide 16
+
+```bash
+sed '/^$/d'
+```
+
+O comando anterior remove `d`  as linhas que contenham o marcador de fim de linha `S` no início da linha `^`. Dessa forma, isso pode ser útil para remover linhas em branco.
+
+### Slide 18
+
+Um arquivo `.fasta` utiliza o caracter `>` para demarcar a linha identificadora, isto é, o nome ou descrição da sequência adiante. Dessa forma, o comando a seguir irá remover as linhas que contenham correspondência para `>` no início da linha `^`:
+
+```bash
+sed '/^>/d' fasta.fa
+```
+
+Exemplo de um arquivo fasta com uma sequência:
+
+### Slide 20
+
+O sed também pode ser utilizado para remover linhas inteiras por índice, isto é, por posição.
+Os comandos abaixo demonstram alguns casos:
+
+```bash
+sed '3d' exemplo2.csv2
+```
+
+Remove `d` a terceira linha `3` do arquivo `exemplo2.csv2`.
+
+```bash
+sed '2,4d' exemplo2.csv2
+```
+
+Remove as linhas do intervalo de 2 a 4 de modo inclusivo, isto é, as linhas 2,3 **E** 4.
+
+```bash
+sed '1d;3d;5d' exemplo2.csv2
+```
+
+Neste caso, 3 comandos de remoção são executados sequencialmente. Desta forma, as linhas 1,3 e 5 serão removidas `d`. 
 
 
 
