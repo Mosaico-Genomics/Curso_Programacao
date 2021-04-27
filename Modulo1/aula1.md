@@ -222,4 +222,4 @@ O próximo bloco invoca o sed com o argumento `-f`, seguido do arquivo `.sed` <s
 sed -f script.sed fasta.fa
 ```
 
-<a name="myfootnote1">1</a>: A extensão `.sed` não é obrigatória.
+<a name="myfootnote1">1</a>: A extensão `.sed` não é obrigatória ao criar o arquivo do script.
