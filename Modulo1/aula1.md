@@ -35,11 +35,22 @@ Da forma como está, o termo `DNA`será substituído apenas **na primeira ocorr�
 
 Para alterar o comportamento anterior, utilize o argumento `/g` ao final do comando.
 
-`sed 's/T/U' dna.txt` irá substituir `s` a primeira ocorrência de `T` por `U` em todas as linhas.
+```bash
+sed 's/T/U' dna.txt
+```
 
-Por outro lado:
 
-`sed 's/T/U/g' dna.txt` substituirá todas as ocorrências de `T` por `U` em todas as linhas.
+Como antes, o comando acima irá substituir `s` a primeira ocorrência de `T` por `U` em todas as linhas.
+
+Por outro lado,
+
+```bash
+sed 's/T/U/g' dna.txt
+```
+
+**todas as ocorrências** de `T` por `U` em todas as linhas.
+
+
 
 
 
