@@ -176,3 +176,52 @@ transliterar `ACTG` por `actg`.
 O comando acima omitindo o `!`seria para **apenas** as linhas contendo >  `/>/`. 
 Sem a parte inicial, isto é, removendo `/>/!` o comando seria executado em **todas** as linhas do arquivo.
 
+### Slide 28
+
+Veja um exemplo da aplicação do comando de substituição `s` do sed:
+
+```bash
+sed 's/;/\t/g' exemplo2.csv2
+```
+
+O comando acima utiliza o sed para trocar o delimitador de campos do arquivo `.csv2`, o qual é delimitado por `;`, para o delimitador Tab ↹ representado pelo caractere de escape `\t`.  
+
+### Slide 30
+
+7. **Múltiplos comandos**
+
+O sed permite encadear múltiplos comandos sem a necessidade de invocar o programa repetidamente. Para isso, o argumento utilizado é `-e` ou `--expression`. Veja o exemplo:
+
+```bash
+sed -e 's/ATG/*ATG*/g' -e '/^>/d' fasta.fa
+```
+
+A linha acima executa dois comandos, o primeiro de substituição `s`, e o segundo de deleção `d`. Note que o input é passado somente ao final da cadeia, a qual é sempre separada pelo argumento `-e`.  
+
+### Slide 32
+
+8. **Comandos em um *script***
+
+Além do encadeamento, múltiplos comandos em sed podem ser escritos em um *script* e invocados pela linha de comando. Isso facilita a leitura, manutenção, portabilidade e reutilização.
+
+```bash
+cat > script.sed
+nano script.sed
+```
+
+```bash
+s/ATG/*ATG*/g
+/^>/d
+```
+
+No primeiro bloco de código, um arquivo `script.sed` é criado no diretório de trabalho e, em seguida, aberto com o editor de texto `nano`.  
+
+O segundo bloco contém o conteúdo do *script* sed com os 2 comandos desejados. Veja que eles são separados por quebras de linha.
+
+O próximo bloco invoca o sed com o argumento `-f`, seguido do arquivo `.sed`[^1] contendo os comandos. 
+
+```bash
+sed -f script.sed fasta.fa
+```
+
+[^1]: A extensão .sed não é obrigatória.
