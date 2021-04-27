@@ -111,7 +111,15 @@ sed '1d;3d;5d' exemplo2.csv2
 
 Neste caso, 3 comandos de remoção são executados sequencialmente. Desta forma, as linhas 1,3 e 5 serão removidas `d`. 
 
+### Slide 22
 
+4. **Imprimir linhas específicas**
+
+```bash
+sed -n '/>/p' fasta.fa
+```
+
+Por padrão o sed imprime na tela o resultado dos comandos. Todavia, quando se deseja **imprimir linhas específicas**, isso deve ser desativado com a opção `-n` (ou `--silent` ou `--quiet`). Em seguida, o comando busca por linhas contendo o caractere `>`, que se encontrado, `p` imprime a linha.
 
 
 
