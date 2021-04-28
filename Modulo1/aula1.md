@@ -20,9 +20,9 @@ Estrutura básica de um comando do SED. Por padrão, o resultado da operação �
 sed 'comando' input_file > output_file
 ```
 
-Desta vez, o resultado da operação estipulada pelo ` comando` sobre o arquivo `input_file` será redirecionado para um arquivo `output_file`. Obs.: Este arquivo será criado contendo a saída do comando `sed` e sobrescreverá em outro com mesmo nome sem confirmação. 
+Desta vez, o resultado da operação estipulada pelo ` comando` sobre o arquivo `input_file` será redirecionado para um arquivo `output_file`. Obs.: Este arquivo será criado contendo a saída do comando `sed` e sobrescreverá um outro com mesmo nome sem confirmação.
 
-Se nenhum arquivo de entrada for fornecido, o `sed` busca pela entrada padrão, o que permite encadeamento de comandos. 
+Se nenhum arquivo de entrada for fornecido, o `sed` busca pela entrada padrão, o que permite encadeamento de comandos usando por exemplo o *pipe* `|`. 
 
 ```bash
 cat input_file | sed 'comando' > output_file
@@ -43,8 +43,6 @@ Da forma como está, o termo `DNA`será substituído apenas **na primeira ocorr�
 
 ### Slide 12
 
-Para alterar o comportamento anterior, utilize o argumento `/g` ao final do comando.
-
 ```bash
 sed 's/T/U' dna.txt
 ```
@@ -52,13 +50,13 @@ sed 's/T/U' dna.txt
 
 Como antes, o comando acima irá substituir `s` a primeira ocorrência de `T` por `U` em todas as linhas.
 
-Por outro lado,
+Por outro lado, para alterar o comportamento anterior de substituição apenas na primeira ocorrência de cada linha, utilize o `/g`:
 
 ```bash
 sed 's/T/U/g' dna.txt
 ```
 
-**todas as ocorrências** de `T` por `U` em todas as linhas.
+Agora, **todas as ocorrências** de `T` são substituídas por `U` em todas as linhas.
 
 ### Slide 14
 
@@ -73,20 +71,18 @@ O comando acima remove `d` (*delete*) as **linhas** que contenham o padrão `nao
 ### Slide 16
 
 ```bash
-sed '/^$/d'
+sed '/^$/d' exemplo1.txt
 ```
 
-O comando anterior remove `d`  as linhas que contenham o marcador de fim de linha `S` no início da linha `^`. Dessa forma, isso pode ser útil para remover linhas em branco.
+O comando anterior remove `d`  as linhas que contenham o marcador de fim de linha `S` no início da linha `^`. Dessa forma, isso pode ser útil para remover linhas em branco de um arquivo.
 
 ### Slide 18
 
-Um arquivo `.fasta` utiliza o caracter `>` para demarcar a linha identificadora, isto é, o nome ou descrição da sequência adiante. Dessa forma, o comando a seguir irá remover as linhas que contenham correspondência para `>` no início da linha `^`:
+Um arquivo `.fa` utiliza o caractere `>` para demarcar a linha identificadora, isto é, o nome ou descrição da sequência adiante. Dessa forma, o comando a seguir irá remover as linhas que contenham correspondência para `>` no início da linha `^`:
 
 ```bash
 sed '/^>/d' fasta.fa
 ```
-
-Exemplo de um arquivo fasta com uma sequência:
 
 ### Slide 20
 
@@ -103,13 +99,13 @@ Remove `d` a terceira linha `3` do arquivo `exemplo2.csv2`.
 sed '2,4d' exemplo2.csv2
 ```
 
-Remove as linhas do intervalo de 2 a 4 de modo inclusivo, isto é, as linhas 2,3 **E** 4.
+Remove as linhas do intervalo `,` de 2 a 4 de modo inclusivo, isto é, as linhas 2,3 **E** 4.
 
 ```bash
 sed '1d;3d;5d' exemplo2.csv2
 ```
 
-Neste caso, 3 comandos de remoção são executados sequencialmente. Desta forma, as linhas 1,3 e 5 serão removidas `d`. 
+Neste caso, 3 comandos de remoção são executados sequencialmente `;`. Desta forma, as linhas 1,3 e 5 serão removidas `d`. 
 
 ### Slide 22
 
@@ -127,7 +123,7 @@ Neste exemplo, apenas as linhas com os nomes das sequências de um arquivo `.fa`
 
 5. **Imprimir linhas por índice ou posição**
 
-Conforme visto anteriormente, a impressão de linhas específicas pode também ser especificada utilizando as posições/índices ou intervalos.
+Conforme visto anteriormente, a impressão de linhas específicas pode também ser especificada utilizando as posições/índices ou intervalos:
 
 ```bash
 sed -n '1p' aa_codons.txt
@@ -139,7 +135,7 @@ Imprime `p` **apenas** a primeira linha `1`do arquivo `aa_codons.txt`.
 sed -n '1,7p' aa_codons.txt
 ```
 
-  Imprime **apenas** as linhas da 1 a 7 do arquivo, i.e, linhas ${1,2,3,4,5,6~\text{e}~7}$.
+  Imprime **apenas** as linhas de 1 a 7 do arquivo, i.e, linhas ${1,2,3,4,5,6~\text{e}~7}$.
 
 ``` bash
 sed -n '1p;7p' aa_codons.txt
@@ -151,7 +147,7 @@ sed -n '1p;7p' aa_codons.txt
 
 6. **Transliteração**
 
-O argumento `y/` faz a transliteração dos caracteres da cadeia fonte pela cadeia de destino. Em termos mais simples, ele possibilita trocar caracteres e padrões.
+O argumento `y/` faz a transliteração dos caracteres da cadeia <u>fonte</u> pela cadeia de <u>destino</u>. Em termos mais simples, ele possibilita trocar caracteres e padrões.
 
 ```bash
 sed 'y/ACTG/actg/' fasta.fa
@@ -162,7 +158,7 @@ O comando acima irá transliterar, ou seja, substituir por mapeamento os caracte
 **Atente-se que:**
 
 *  O número de caracteres na lista fonte e de destino **deve ser igual**;
-* A transliteração **não** corresponde a cadeia de caracteres como um todo, mas sim caractere a caractere.
+* A transliteração **não** corresponde a cadeia de caracteres **como um todo**, mas sim caractere a caractere, ou seja, A → a e C → c, e assim por diante.
 
 Para negar uma correspondência, o ponto de exclamação `!` é utilizado. Veja um exemplo:
 
@@ -170,11 +166,11 @@ Para negar uma correspondência, o ponto de exclamação `!` é utilizado. Veja 
 sed '/>/!y/ACTG/actg/' fasta.fa
 ```
 
-Para todas as linhas **não** contendo `/>/!`
+Para todas as linhas **não** contendo **>** `/>/!`
 transliterar `ACTG` por `actg`.
 
-O comando acima omitindo o `!`seria para **apenas** as linhas contendo >  `/>/`. 
-Sem a parte inicial, isto é, removendo `/>/!` o comando seria executado em **todas** as linhas do arquivo.
+O comando acima omitindo o `!`seria para **apenas** as linhas **contendo** **>**  `/>/`. 
+Logo, sem a parte inicial, isto é, removendo `/>/!` o comando seria executado em **todas** as linhas do arquivo.
 
 ### Slide 28
 
