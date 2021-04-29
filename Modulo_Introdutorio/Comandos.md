@@ -6,8 +6,11 @@ uso:
 ![image](https://user-images.githubusercontent.com/58569730/116619927-82478800-a917-11eb-824d-2c804245d402.png)
 
 Alguns parâmetros úteis do ls:
+
 -S: arquivos ordenados por tamanho.
+
 -r: arquivos listados na ordem inversa.
+
 -a: todos arquivos incluindo os ocultos.
 
 # Caminho do diretório atual
