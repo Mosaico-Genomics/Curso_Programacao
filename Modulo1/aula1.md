@@ -28,7 +28,7 @@ Se nenhum arquivo de entrada for fornecido, o `sed` busca pela entrada padrão, 
 cat input_file | sed 'comando' > output_file
 ```
 
-### Slide 10
+### Slide 7
 
 2. **Substituição**
 
@@ -41,7 +41,7 @@ Note que os comandos em `sed` são sempre envoltos por aspas simples `'comando'`
 O padrão a ser substituído poderia ser numérico (inteiros ou racionais).
 Da forma como está, o termo `DNA`será substituído apenas **na primeira ocorrência** de cada uma das linhas do arquivo.
 
-### Slide 12
+### Slide 9
 
 ```bash
 sed 's/T/U' dna.txt
@@ -58,7 +58,7 @@ sed 's/T/U/g' dna.txt
 
 Agora, **todas as ocorrências** de `T` são substituídas por `U` em todas as linhas.
 
-### Slide 14
+### Slide 11
 
 3. **Deleção de linhas**
 
@@ -68,7 +68,7 @@ sed '/nao_essencial/d' aa_codons.txt
 
 O comando acima remove `d` (*delete*) as **linhas** que contenham o padrão `nao_essencial`. 
 
-### Slide 16
+### Slide 13
 
 ```bash
 sed '/^$/d' exemplo1.txt
@@ -76,7 +76,7 @@ sed '/^$/d' exemplo1.txt
 
 O comando anterior remove `d`  as linhas que contenham o marcador de fim de linha `S` no início da linha `^`. Dessa forma, isso pode ser útil para remover linhas em branco de um arquivo.
 
-### Slide 18
+### Slide 15
 
 Um arquivo `.fa` utiliza o caractere `>` para demarcar a linha identificadora, isto é, o nome ou descrição da sequência adiante. Dessa forma, o comando a seguir irá remover as linhas que contenham correspondência para `>` no início da linha `^`:
 
@@ -84,7 +84,7 @@ Um arquivo `.fa` utiliza o caractere `>` para demarcar a linha identificadora, i
 sed '/^>/d' fasta.fa
 ```
 
-### Slide 20
+### Slide 17
 
 O sed também pode ser utilizado para remover linhas inteiras por índice, isto é, por posição.
 Os comandos abaixo demonstram alguns casos:
@@ -107,7 +107,7 @@ sed '1d;3d;5d' exemplo2.csv2
 
 Neste caso, 3 comandos de remoção são executados sequencialmente `;`. Desta forma, as linhas 1,3 e 5 serão removidas `d`. 
 
-### Slide 22
+### Slide 19
 
 4. **Imprimir linhas específicas através de correspondência **  
 
@@ -119,7 +119,7 @@ Por padrão o sed imprime na tela o resultado dos comandos. Todavia, quando se d
 
 Neste exemplo, apenas as linhas com os nomes das sequências de um arquivo `.fa` são impressas.
 
-### Slide 24
+### Slide 21
 
 5. **Imprimir linhas por índice ou posição**
 
@@ -143,7 +143,7 @@ sed -n '1p;7p' aa_codons.txt
 
  Imprime **apenas** as linhas 1 **E** 7 do arquivo.
 
-### Slide 26
+### Slide 23
 
 6. **Transliteração**
 
@@ -172,7 +172,7 @@ transliterar `ACTG` por `actg`.
 O comando acima omitindo o `!`seria para **apenas** as linhas **contendo** **>**  `/>/`. 
 Logo, sem a parte inicial, isto é, removendo `/>/!` o comando seria executado em **todas** as linhas do arquivo.
 
-### Slide 28
+### Slide 25
 
 Veja um exemplo da aplicação do comando de substituição `s` do sed:
 
@@ -182,7 +182,7 @@ sed 's/;/\t/g' exemplo2.csv2
 
 O comando acima utiliza o sed para trocar o delimitador de campos do arquivo `.csv2`, o qual é delimitado por `;`, para o delimitador Tab ↹ representado pelo caractere de escape `\t`.  
 
-### Slide 30
+### Slide 27
 
 7. **Múltiplos comandos**
 
@@ -194,7 +194,7 @@ sed -e 's/ATG/*ATG*/g' -e '/^>/d' fasta.fa
 
 A linha acima executa dois comandos, o primeiro de substituição `s`, e o segundo de deleção `d`. Note que o input é passado somente ao final da cadeia, a qual é sempre separada pelo argumento `-e`.  
 
-### Slide 32
+### Slides 29 e 30
 
 8. **Comandos em um *script***
 
