@@ -1,6 +1,6 @@
 # Bem vindos ao curso de programação da Mosaico
 
-Nesta seção, vocês encontrarão os codigos em python utilizando a biblioteca PANDAS durantes as aulas.
+Nesta seção, vocês encontrarão os codigos das bibliotecas PANDAS e PyVCF utilizadas durantes as aulas.
 
 
 # PANDAS
