@@ -9,6 +9,8 @@ Nesta seção, vocês encontrarão os codigos das bibliotecas PANDAS e PyVCF uti
 * Uma das principais bibliotecas utilizadas por cientistas de dados.
 * Pode ser usada em conjunto com outras bibliotecas como Sklearn (IA).
 
+***
+
 * slide 228
 ```
 import pandas as pd
@@ -150,9 +152,10 @@ withoutNA['Sex'] = withoutNA['Sex'].str.replace('female','2')
 ```
 ***
 
-* PyVCF
+# PyVCF
 
 ![image](https://user-images.githubusercontent.com/11162991/117059386-25244b80-acf6-11eb-862f-ea51582e70bb.png)
+
 
 * slide 268
 ```
@@ -244,7 +247,6 @@ for sample in record:
 print(record.genotype('NA00003')['GT'])
 call = record.genotype('NA00003')
 ```
-
 
 * slide 281
 ```
