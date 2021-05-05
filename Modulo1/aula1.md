@@ -14,7 +14,7 @@ Neste documento estão disponíveis os códigos demonstrados nos slides da aula 
 sed 'comando' input_file
 ```
 
-Estrutura básica de um comando do SED. Por padrão, o resultado da operação é impresso na saída padrão e nada é salvo no disco.
+Estrutura básica de um comando do `sed`. Por padrão, o resultado da operação é impresso na saída padrão e nada é salvo no disco.
 
 ```bash
 sed 'comando' input_file > output_file
@@ -39,7 +39,7 @@ sed 's/DNA/RNA/' texto.txt
 Este comando irá substituir `s` a cadeia de texto `DNA` contidas no arquivo `texto.txt` por `RNA`. 
 Note que os comandos em `sed` são sempre envoltos por aspas simples `'comando'`. 
 O padrão a ser substituído poderia ser numérico (inteiros ou racionais).
-Da forma como está, o termo `DNA`será substituído apenas **na primeira ocorrência** de cada uma das linhas do arquivo.
+Da forma como está, o termo `DNA` será substituído apenas **na primeira ocorrência** de cada uma das linhas do arquivo.
 
 ### Slide 9
 
@@ -174,7 +174,7 @@ Logo, sem a parte inicial, isto é, removendo `/>/!` o comando seria executado e
 
 ### Slide 25
 
-Veja um exemplo da aplicação do comando de substituição `s` do sed:
+Veja um exemplo da aplicação do comando de substituição `s` do `sed`:
 
 ```bash
 sed 's/;/\t/g' exemplo2.csv2
@@ -186,7 +186,7 @@ O comando acima utiliza o sed para trocar o delimitador de campos do arquivo `.c
 
 7. **Múltiplos comandos**
 
-O sed permite encadear múltiplos comandos sem a necessidade de invocar o programa repetidamente. Para isso, o argumento utilizado é `-e` ou `--expression`. Veja o exemplo:
+O `sed` permite encadear múltiplos comandos sem a necessidade de invocar o programa repetidamente. Para isso, o argumento utilizado é `-e` ou `--expression`. Veja o exemplo:
 
 ```bash
 sed -e 's/ATG/*ATG*/g' -e '/^>/d' fasta.fa
@@ -198,7 +198,7 @@ A linha acima executa dois comandos, o primeiro de substituição `s`, e o segun
 
 8. **Comandos em um *script***
 
-Além do encadeamento, múltiplos comandos em sed podem ser escritos em um *script* e invocados pela linha de comando. Isso facilita a leitura, manutenção, portabilidade e reutilização.
+Além do encadeamento, múltiplos comandos em `sed` podem ser escritos em um *script* e invocados pela linha de comando. Isso facilita a leitura, manutenção, portabilidade e reutilização.
 
 ```bash
 cat > script.sed
