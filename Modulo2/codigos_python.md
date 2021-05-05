@@ -3,9 +3,16 @@
 Nesta seção, vocês encontrarão os codigos de python utilizados durantes as aulas.
 
 ***
-Instalar anaconda
-<p>Abrir anaconda
-  
+
+# Conda - Links uteis
+
+Site do Anaconda: (https://www.anaconda.com/ )
+
+Tutorial do Anaconda: (https://www.anaconda.com/individual-tutorial)
+
+User guide: (https://docs.anaconda.com/anaconda/user-guide/?utm_source=anaconda.com&utm_medium=individual-get-started)
+
+   
 ***
 
 # Códigos Python
