@@ -14,9 +14,9 @@ Este link levará diretamente para a página oficial da Microsoft com o tutorial
 O OpenSSH é é uma ferramenta de conectividade para login remoto que usa o protocolo SSH. Ele criptografa todo o tráfego entre cliente e servidor para eliminar espionagem,
 sequestro de conexão e outros ataques. Portanto, devemos intalá=lo em nosso computador para termos acesso ao servidor.
 
-
-> Verificar se o OpenSSH já está presente em nossa máquina.
-
+```
+Verificar se o OpenSSH já está presente em nossa máquina.
+```
 
 Vamos abrir o PowerShell como administrador usando o atalho: Windows+X
 No nosso lado esquerdo aparecerá a seguinte aba:
