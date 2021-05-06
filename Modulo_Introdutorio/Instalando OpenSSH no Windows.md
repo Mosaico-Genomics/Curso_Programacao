@@ -100,4 +100,4 @@ Após termos terminadas as instalações de *.Client* e *.Server*, verifique ago
 
 > Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 
-
+Agora, já podemos ir para o **"Acessando o Servidor"**.
