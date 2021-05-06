@@ -10,23 +10,30 @@ Este link levará diretamente para a página oficial da Microsoft com o tutorial
 
 # OpenSSH
 
+
 O OpenSSH é é uma ferramenta de conectividade para login remoto que usa o protocolo SSH. Ele criptografa todo o tráfego entre cliente e servidor para eliminar espionagem,
 sequestro de conexão e outros ataques. Portanto, devemos intalá=lo em nosso computador para termos acesso ao servidor.
 
+
 > Primeiro passo - Verificar se o OpenSSH já está presente em nossa máquina.
+
 
 Vamos abrir o PowerShell como administrador usando o atalho: Windows+X
 No nosso lado esquerdo aparecerá a seguinte aba:
 
+
 #adicionar o link da imagem#
 
+
 Clique agora em "Windows PowerShell (Admin)" - Isso faz com que o PowerShell seja executado no modo Administrador.
+
 
 **É DE EXTREMA IMPORTÂNCIA QUE O POWERSHELL ESTEJA NO MODO ADMIN, CASO CONTRÁRIO NENHUM PASSO ADIANTE PODERÁ SER EXECUTADO.**
 
 Após a ação anterior, essa tela irá aparecer. Agora você está dentro do Terminal PowerShell
 
 #add imaagem#
+
 
 # Verificando se o OpenSSH já está em seu computador.
 
@@ -62,6 +69,7 @@ State : Installed
 
 Se constar como **"Installed"**, sua tarefa aqui já terminou, caso contrário, vamos continuar o nosso Tutorial.
 
+
 # Instalando o OpenSSH.Client
 
 Para instalarmos o OpenSSH.Clint, basta executarmos esse comando em nosso Terminal PowerShell:
@@ -72,6 +80,7 @@ Para instalarmos o OpenSSH.Clint, basta executarmos esse comando em nosso Termin
 
 Terminada a instalação, podemos seguir para o próximo passo.
 
+
 # Instalando o OpenSSH.Server
 
 Da mesma forma, para instalarmos o OpenSSH.Server, basta executarmos esse comando em nosso Terminal PowerShell:
@@ -80,9 +89,10 @@ Da mesma forma, para instalarmos o OpenSSH.Server, basta executarmos esse comand
 
 *Isso pode levar alguns minutos*
 
-# Terminada a instalação
 
-Apos termos terminados a instalação dos .Client e .Server, verifique agora se tudo ocorreu bem e eles estão presentes em seu computador.
+# Terminadas as instalações
+
+Após termos terminadas as instalações de .Client e .Server, verifique agora se tudo ocorreu bem e eles estão presentes em seu computador.
 
 > Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 
