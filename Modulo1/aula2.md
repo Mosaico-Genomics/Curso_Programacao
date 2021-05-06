@@ -121,5 +121,59 @@ awk -F'\t' '{print $1, $7}' hgmd_brca1.txt
 
 Para informar ao AWK qual delimitador deve ser utilizado como separador dos campos, utilize o argumento `-F` passado após a invocação do executável `awk`.  **Veja que desta vez o conteúdo foi extraído corretamente**. O que ocorreu foi que, no exemplo do slide 13, o delimitador utilizado pelo AWK foi o espaço em branco, enquanto que o delimitador do arquivo é a tabulação. Portanto, a sétima coluna do arquivo `hgmd_brca1.txt` contém referências. 
 
+### Slide 21
 
+```bash
+awk '/X/' hgmd_brca1.txt
 
+# C44G CM985510
+# G275S CM076033
+# R496C CM065005
+# Q657X CM068262
+# Q1396X CM024467
+# Y1429X CM024468
+# A1708V CM065004
+# A1752P CM011913
+# [...]
+```
+
+O código acima busca por linhas que contenham o padrão separado entre barras, logo, o **caractere maiúsculo X** (apenas). 
+
+```bash
+awk '/X/{print $4,$1}' hgmd_brca1.txt
+
+# Q12X CM031646
+# Q19X CM081536
+# L30X CM077509
+# Q60X CM973715
+# L63X CM950140
+# Q74X CM970167
+# Q81X CM044860
+# Y101X CM077508
+# Y130X CM055102
+# E143X CM014321
+# [...]
+```
+
+O comando acima busca por linhas contendo X maiúsculo e, em seguida, imprime as colunas 4 e 1.
+:warning:<span style="color:red">**Atenção**</span>, o padrão é buscado em todos os campos e **não** apenas nas colunas 1 e 4.
+
+### Slide 24
+
+```bash
+awk '$4~/X/{print $4,$1}' hgmd_brca1.txt
+
+# Q12X CM031646
+# Q19X CM081536
+# L30X CM077509
+# Q60X CM973715
+# L63X CM950140
+# Q74X CM970167
+# Q81X CM044860
+# Y101X CM077508
+# Y130X CM055102
+# E143X CM014321
+# [...]
+```
+
+O comando acima **restringe** a busca na coluna 4. Isso é feito através da sintaxe `$4~//`,  onde lê-se: na coluna quatro `$4~` busque pelo padrão `X`. Embora a saída truncada [...] esteja igual a segunda do slide 21,  elas **não são iguais**. Para confirmar isso, inspecione as duas saídas na íntegra, ou conte o número de linhas de cada resultado utilizado este comando **adicional** após os comandos originais acima: `| wc -l` (conte as linhas `-l` da saída anterior redirecionada `|` ao utilitário ` wc`).  
