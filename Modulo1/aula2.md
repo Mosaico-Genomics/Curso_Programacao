@@ -232,8 +232,6 @@ awk '$4=="JunD" && $5 > 500' tfbs.bed
 # chr7	104081848	104082054	JunD	558	+
 ```
 
-No exemplo abaixo
-
 ```bash
 awk '$4=="SIX5" || $4=="STAT2"' tfbs.bed
 
