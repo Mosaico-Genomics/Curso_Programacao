@@ -183,7 +183,7 @@ O comando acima **restringe** a busca na coluna 4. Isso é feito através da sin
 O código abaixo é muito parecido com o anterior. A única diferença é a presença do caractere `!` antes de `~/X/`. Esse caractere indica a <span style="color:red">**negação**</span> do próximo, isto é, **na coluna 4**, busque pelo **inverso de** X (ou seja, **tudo** **que não** corresponda a X), então imprima as colunas 4 e 1. 
 
 ```bash
-awk ‘$4!~/X/{print $4,$1}' hgmd_brca1.txt
+awk '$4!~/X/{print $4,$1}' hgmd_brca1.txt
 
 # codon Accession
 # M1R CM014520
