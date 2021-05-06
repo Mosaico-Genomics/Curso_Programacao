@@ -343,7 +343,7 @@ awk '{$6=$3-$2; print}' tfbs.bed
 # chr1 151714434 151714708 FOSL2 664 274
 # [...]
 ```
-
+ 
 ### Slide 43
 
 O comando abaixo possui apenas uma instrução de imprimir seguida da variável interna `NF`. O AWK atribui o **número de campos** do arquivo a essa variável. Logo, ao solicitar sua impressão, ela mostra o número de campos/colunas por linha. Note que cada linha mostra um número diferente de colunas. Seria um erro? 
