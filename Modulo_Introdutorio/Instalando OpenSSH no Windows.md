@@ -12,22 +12,21 @@ Este link levará diretamente para a página oficial da Microsoft com o tutorial
 
 
 O OpenSSH é é uma ferramenta de conectividade para login remoto que usa o protocolo SSH. Ele criptografa todo o tráfego entre cliente e servidor para eliminar espionagem,
-sequestro de conexão e outros ataques. Portanto, devemos intalá=lo em nosso computador para termos acesso ao servidor.
+sequestro de conexão e outros ataques. Portanto, devemos intalá-lo em nosso computador para termos acesso ao servidor. Vamos primeiramente verificar se o OpenSSH já está presente em nossa máquina.
 
-```
-Verificar se o OpenSSH já está presente em nossa máquina.
-```
 
-Vamos abrir o PowerShell como administrador usando o atalho: Windows+X
+Devemos abrir o PowerShell como administrador usando o atalho: Windows+X
+
 No nosso lado esquerdo aparecerá a seguinte aba:
 
 ![alt text](https://github.com/lcsfaria/Teste/blob/main/cbd4c2fd-98c1-45df-a78e-8609df65ed93.jpg)
 
 
-Clique agora em "Windows PowerShell (Admin)" - Isso faz com que o PowerShell seja executado no modo Administrador.
+Clique agora em "Windows PowerShell (Admin)" - Isso fará com que o PowerShell seja executado no modo Administrador.
 
 
 **É DE EXTREMA IMPORTÂNCIA QUE O POWERSHELL ESTEJA NO MODO ADMIN, CASO CONTRÁRIO NENHUM PASSO ADIANTE PODERÁ SER EXECUTADO.**
+
 
 Após a ação anterior, essa tela irá aparecer: 
 
@@ -48,6 +47,7 @@ Assim o conteúdo será colado.
 Com o conteúdo colado, aperte ENTER para executá-lo.
 
 Agora, duas mensagemns poderão aparecer:
+
 ```diff
 
 Name  : OpenSSH.Client~~~~0.0.1.0
@@ -62,6 +62,7 @@ State : Installed
 Name  : OpenSSH.Server~~~~0.0.1.0
 State : Installed
 ```
+
 É necessário que tanto **OpenSSH.Client** quanto **OpenSSH.Server** constem como **"Installed"**.
 
 Se constar como **"Installed"**, sua tarefa aqui já terminou, caso contrário, vamos continuar o nosso Tutorial.
