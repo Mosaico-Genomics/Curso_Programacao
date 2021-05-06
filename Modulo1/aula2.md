@@ -498,7 +498,5 @@ head -1 hgmd_brca1.txt | tr '\t' '\n' | awk '{print NR, $0}'
 # 8 Source
 ```
 
-A operação anterior é muito útil antes de começar a trabalhar com um arquivo, especialmente se ele for muito grande[^1] para ser aberto em um processador de tabelas. Dessa forma, você pode inspecionar quais e quantos campos esse arquivo contém e quais deles você precisar manipular.
-
-[^1]: SED e AWK são eficientes para várias operações e é por isso que são populares na bioinformática.
+A operação anterior é muito útil antes de começar a trabalhar com um arquivo, especialmente se ele for muito grande para ser aberto em um processador de tabelas. Dessa forma, você pode inspecionar quais e quantos campos esse arquivo contém e quais deles você precisar manipular.
 
