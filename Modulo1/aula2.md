@@ -267,5 +267,238 @@ O exemplo a seguir é similar. Desta vez, algum valor da quinta coluna deverá s
 ```bash
 awk '$5<35 && $4!="SREBP1"' tfbs.bed 
 
+# chr4	47713796	47714292	TAF1	33	+
+# chr16	24928497	24928514	SREBP2	26	+
+# chr14	42844745	42844884	GABP	27	+
+# chr6	100075411	100076513	STAT1	34	+
+# chr2	224450765	224451409	NFKB	33	+
 ```
+
+### Slide 36
+
+O código abaixo é similar aos anteriores, todavia, desta vez o caractere de negação `!` está aplicado a um grupo de instruções. O comando especifica que: para as linhas da coluna 5 que sejam menores de 35 **E** valores da 4ª coluna que não são iguais a `"SREBP1"` *nem* `"SREBP2"`, imprima as linhas.
+
+```bash
+awk '$5<35 && !($4=="SREBP1" || $4=="SREBP2")' tfbs.bed
+
+# chr4	47713796	47714292	TAF1	33	+
+# chr14	42844745	42844884	GABP	27	+
+# chr6	100075411	100076513	STAT1	34	+
+# chr2	224450765	224451409	NFKB	33	+
+```
+
+### Slide 38
+
+O AWK é capaz de diversas funções, entre elas ele pode realizar operações matemáticas. No código abaixo, os valores da segunda coluna são subtraídos da terceira. Veja que essas operações acontecem entre `{}`. Após a subtração, o `$0` indica que o resultada da operação deve ser **retornado** como uma <span style="color:green">**nova coluna** </span>na **primeira** posição. Se o `$0` fosse **omitido**, <u>apenas</u> a nova coluna seria retornada por padrão. 
+
+```bash
+awk '{print $3-$2, $0}' tfbs.bed 
+
+# 100 chr6	31740766	31740866	FOXP2	1000	+
+# 396 chrX	105496791	105497187	BCL3	368	+
+# 446 chr19	733449	733895	p300	340	+
+# 368 chr1	6506253	6506621	USF-1	277	+
+# 1148 chr5	124024209	124025357	STAT1	78	+
+# 491 chr1	210175342	210175833	TCF12	672	+
+# 375 chr10	22650206	22650581	NRSF	44	+
+# 208 chr19	53613876	53614084	c-Jun	518	+
+# 1212 chr1	1679539	1680751	BAF155	825	+
+# 274 chr1	151714434	151714708	FOSL2	664	+
+```
+
+### Slide 40
+
+Para **criar** uma nova coluna ou **substituir**, o símbolo de igual `=` funciona como operador de atribuição. 
+No exemplo abaixo, o resultado da subtração entre os valores da 3ª e 2ª colunas será armazenado em uma nova coluna (sétima). Além disso, a instrução `print $0` é necessária  para retornar o resultado completo. Alternativamente, apenas `print`também será suficiente. 
+
+```bash
+awk '{$7=$3-$2; print $0}' tfbs.bed
+
+# chr6 31740766 31740866 FOXP2 1000 + 100
+# chrX 105496791 105497187 BCL3 368 + 396
+# chr19 733449 733895 p300 340 + 446
+# chr1 6506253 6506621 USF-1 277 + 368
+# chr5 124024209 124025357 STAT1 78 + 1148
+# chr1 210175342 210175833 TCF12 672 + 491
+# chr10 22650206 22650581 NRSF 44 + 375
+# chr19 53613876 53614084 c-Jun 518 + 208
+# chr1 1679539 1680751 BAF155 825 + 1212
+# chr1 151714434 151714708 FOSL2 664 + 274
+# [...]
+```
+
+O próximo comando **substitui** a sexta coluna, ao invés de criar outra nova. Além disso, veja que a instrução `print` após ponto-vírgula foi utilizada.
+:warning:<span style = "color:red">**Atenção**</span>, no caso de substituir, o AWK o fará **sem aviso ou confirmação**. 
+
+```bash
+awk '{$6=$3-$2; print}' tfbs.bed
+
+# chr6 31740766 31740866 FOXP2 1000 100
+# chrX 105496791 105497187 BCL3 368 396
+# chr19 733449 733895 p300 340 446
+# chr1 6506253 6506621 USF-1 277 368
+# chr5 124024209 124025357 STAT1 78 1148
+# chr1 210175342 210175833 TCF12 672 491
+# chr10 22650206 22650581 NRSF 44 375
+# chr19 53613876 53614084 c-Jun 518 208
+# chr1 1679539 1680751 BAF155 825 1212
+# chr1 151714434 151714708 FOSL2 664 274
+# [...]
+```
+
+### Slide 43
+
+O comando abaixo possui apenas uma instrução de imprimir seguida da variável interna `NF`. O AWK atribui o **número de campos** do arquivo a essa variável. Logo, ao solicitar sua impressão, ela mostra o número de campos/colunas por linha. Note que cada linha mostra um número diferente de colunas. Seria um erro? 
+
+
+```bash
+awk '{print NF}' hgmd_brca1.txt
+
+# 16
+# 15
+# 14
+# 18
+# 17
+# 14
+# 13
+# 18
+# 14
+# 13
+# [...]
+```
+
+**O exemplo abaixo indica que sim.** 
+:heavy_exclamation_mark: Lembre-se que, por padrão, o AWK considera espaços e/ou tabulações e/ou finais de linha como delimitador. Como o arquivo é delimitado por tabulações, isso pode ser especificado utilizando o argumento `-F`. 
+
+```bash
+awk -F'\t' '{print NF}' hgmd_brca1.txt
+
+# 8
+# 8
+# 8
+# 8
+# 8
+# 8
+# 8
+# 8
+# 8
+# 8
+# [...]
+```
+
+Veja que o número correto de campos/colunas do arquivo foi mostrado. 
+
+### Slide 46
+
+Ao solicitar a **impressão** da variável `$NF` o AWK irá imprimir o último campo/coluna do arquivo. Veja que sem especificar o delimitador, o resultado funcionou **parcialmente**, todavia, não conte com essa sorte. Parcialmente porque embora os valores estejam corretos, o campo está incompleto, os valores deveriam ser precedidos da fonte `"PubMed 11595708"`, e assim por diante.
+
+```bash
+awk '{print $NF}' hgmd_brca1.txt
+
+# Source
+# 11595708
+# 8807330
+# 15235020
+# 11802209
+# 7894491
+# 12491499
+# 15235020
+# 11748848
+# 9544766
+# [...]
+```
+
+O próximo código simplesmente imprime a **penúltima** coluna. Isso é feito subtraindo 1 da variável `$NF`. Perceba que a operação está entre parênteses. Veja também que o mesmo **problema** anterior ocorre, sem especificar o delimitador, a coluna retornada está incorreta.
+
+```bash
+awk '{print $(NF-1)}' hgmd_brca1.txt
+
+# Reference
+# PubMed
+# PubMed
+# PubMed
+# PubMed
+# PubMed
+# PubMed
+# PubMed
+# PubMed
+# PubMed
+# [...]
+```
+
+### Slide 49
+
+A `$NR` é outra variável que armazena o número de cada linha (ou *record*) no arquivo. O código abaixo imprime esse número em uma **nova coluna** no início `$0 ` do arquivo.
+
+```bash
+awk '{print NR,$0}' hgmd_brca1.txt
+
+# 1 Accession Number	HGMD codon change	HGMD amino acid change	HGVS (protein) [...]
+# 2 CM014520	ATG-AGG	Met1Arg	M1R [...]
+# 3 CM960163	ATGg-ATT	Met1Ile	M1I [...]
+# 4 CM041678	ATG-ACG	Met1Thr	M1T [...]
+# 5 CM021503	aATG-GTG	Met1Val	M1V [...]
+# 6 CM940170	GTA-GCA	Val11Ala	V11A [...]
+# 7 CM031646	aCAA-TAA	Gln12Term	Q12X [...]
+# 8 CM041679	ATT-ACT	Ile15Thr	I15T [...]
+# 9 CM012906	ATG-AAG	Met18Lys	M18K [...]
+# 10 CM004187	ATG-ACG	Met18Thr	M18T [...]
+# [...] 
+```
+
+### Slide 54
+
+```bash
+awk -F'\t' 'NR>1{print $6}' hgmd_brca1.txt
+
+```
+
+Para excluir o cabeçalho.
+
+### Slide 56/58
+
+Os múltiplos comandos abaixo foram encadeados para descobrir o índice das colunas e seu nome (primeira linha). Para simplificar, eles serão ilustrados passo-a-passo:
+
+----
+
+Imprima a primeira linha do arquivo com `head`:
+
+```bash
+head -1 hgmd_brca1.txt
+```
+
+Agora, utilize o utilitário `tr` para **substituir** todos os delimitadores de tabulação `\t` para novas linhas `\n`:
+
+```bash
+tr '\t' '\n'
+```
+
+Adicione uma coluna na primeira posição do arquivo com o número de linhas:
+
+```bash
+awk '{print NR, $0}'
+```
+
+**Agora, o comando completo encadeado com os pipes `|`:**
+
+1. O cabeçalho do arquivo é extraído;
+2.  as tabulações são substituídas por marcadores de nova linha (transpõe a linha em coluna);
+3. o número de cada linha é adicionado à primeira posição do arquivo. 
+
+```bash
+head -1 hgmd_brca1.txt | tr '\t' '\n' | awk '{print NR, $0}'
+
+# 1 Accession Number
+# 2 HGMD codon change
+# 3 HGMD amino acid change
+# 4 HGVS (protein)
+# 5 HGVS (nucleotide)
+# 6 Phenotype
+# 7 Reference
+# 8 Source
+```
+
+A operação anterior é muito útil antes de começar a trabalhar com um arquivo, especialmente se ele for muito grande[^1] para ser aberto em um processador de tabelas. Dessa forma, você pode inspecionar quais e quantos campos esse arquivo contém e quais deles você precisar manipular.
+
+[^1]: SED e AWK são eficientes para várias operações e é por isso que são populares na bioinformática.
 
