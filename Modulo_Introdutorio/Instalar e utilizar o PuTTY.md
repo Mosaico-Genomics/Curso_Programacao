@@ -55,18 +55,4 @@ Pronto, você está conectado no servidor.
 
 ## Estou no servidor. E agora?
 A primeira coisa que você deve ter em mente, é que nosso servidor, [assim como a maior parte de servidores, _mainframes_ e supercomputadores](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems#Public_servers_on_the_Internet), utiliza linux. Portanto, uma vez dentro do servidor, utilize [comandos apropriados.](https://github.com/Mosaico-Genomics/Curso_Programacao/blob/main/Modulo_Introdutorio/ComandosLinux.md)
-Uma coisa que também devemos ficar atentos, o tempo de inatividade. Após determinado período sem utilizar o servidor, ele te deconectará, e no caso especifico do windows, o seu console vai travar e você fecha-lo e abrir um novo para poder se conectar de novo.
-
-### Transferindo arquivos entre o servidor e o seu computador
-
-Aqui, o comando é `scp`, de secure copy. A documentação pode ser acessada [aqui.](https://man.openbsd.org/scp)
-Sua utilização básica é:
-```bash
-scp login@servidor:<Arquivo> <Destino> <Parâmetros>
-```
-_E.g.:_ 
-```bash
-scp aluno1@127.0.0.1:/home/aluno1/exemplo D:\
-```
-
-![image](https://user-images.githubusercontent.com/58569730/117373982-af111780-aea2-11eb-8de4-afa9c762b100.png)
+Uma coisa que também devemos ficar atentos, o tempo de inatividade. Após determinado período sem utilizar o servidor, ele te deconectará, sendo necessário que você faça login novamente.
