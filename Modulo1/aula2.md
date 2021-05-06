@@ -156,7 +156,7 @@ awk '/X/{print $4,$1}' hgmd_brca1.txt
 ```
 
 O comando acima busca por linhas contendo X maiúsculo e, em seguida, imprime as colunas 4 e 1.
-:warning:<span style="color:red">**Atenção**</span>, o padrão é buscado em todos os campos e **não** apenas nas colunas 1 e 4.
+:warning: <span style="color:red">**Atenção**</span>, o padrão é buscado em todos os campos e **não** apenas nas colunas 1 e 4.
 
 ### Slide 24
 
@@ -177,3 +177,95 @@ awk '$4~/X/{print $4,$1}' hgmd_brca1.txt
 ```
 
 O comando acima **restringe** a busca na coluna 4. Isso é feito através da sintaxe `$4~//`,  onde lê-se: na coluna quatro `$4~` busque pelo padrão `X`. Embora a saída truncada [...] esteja igual a segunda do slide 21,  elas **não são iguais**. Para confirmar isso, inspecione as duas saídas na íntegra, ou conte o número de linhas de cada resultado utilizado este comando **adicional** após os comandos originais acima: `| wc -l` (conte as linhas `-l` da saída anterior redirecionada `|` ao utilitário ` wc`).  
+
+### Slide 26
+
+O código abaixo é muito parecido com o anterior. A única diferença é a presença do caractere `!` antes de `~/X/`. Esse caractere indica a <span style="color:red">**negação**</span> do próximo, isto é, **na coluna 4**, busque pelo **inverso de** X (ou seja, **tudo** **que não** corresponda a X), então imprima as colunas 4 e 1. 
+
+```bash
+awk ‘$4!~/X/{print $4,$1}' hgmd_brca1.txt
+
+# codon Accession
+# M1R CM014520
+# M1I CM960163
+# M1T CM041678
+# M1V CM021503
+# V11A CM940170
+# I15T CM041679
+# M18K CM012906
+# M18T CM004187
+# I21V CM940171
+# [...]
+```
+
+Agora, o caractere de negação `!` está antes do padrão a ser buscado.  Como não há indicação de qual coluna isso deve ser correspondente, **para qualquer linha não contendo X**, imprima a a quarta `$4` coluna.
+
+```bash
+awk '!/X/{print $4}' hgmd_brca1.txt
+
+# codon
+# M1R
+# M1I
+# M1T
+# M1V
+# V11A
+# I15T
+# M18K
+# M18T
+# I21V
+# [...]
+```
+
+### Slide 30
+
+O AWK também permite múltiplos critérios para filtrar linhas. No exemplo abaixo, se algum dos valores da quarta coluna forem iguais `==` a `"JunD"` **E** algum valor da coluna 5 for maior `>` que 500, imprima todas as linhas. **Lembre-se, por padrão, se nenhuma ação for especificada, todas as linhas serão impressas**. Neste caso, todas as linhas obedecendo as regras anteriores são retornadas. 
+
+```bash
+awk '$4=="JunD" && $5 > 500' tfbs.bed
+
+# chr7	936178	936581	JunD	757	+
+# chr4	38567056	38567601	JunD	630	+
+# chr10	73319031	73319084	JunD	658	+
+# chr11	121774119	121774448	JunD	1000	+
+# chr22	28938533	28939199	JunD	529	+
+# chr21	34025863	34025966	JunD	655	+
+# chr7	104081848	104082054	JunD	558	+
+```
+
+No exemplo abaixo
+
+```bash
+awk '$4=="SIX5" || $4=="STAT2"' tfbs.bed
+
+# chr7	106043557	106044007	STAT2	145	+
+# chr17	37194878	37195184	STAT2	156	+
+# chr19	40347918	40348201	STAT2	366	+
+# chr13	102295919	102296480	STAT2	135	+
+# chr3	9379407	9380161	STAT2	148	+
+# chr19	55464702	55465081	STAT2	129	+
+# chr19	3713461	3713789	SIX5	471	+
+# chr1	32346019	32346260	SIX5	46	+
+# chr11	45163370	45163819	STAT2	303	+
+```
+
+No comando acima, para linhas contendo `"SIX5"` na quinta coluna **OU** `"STAT2"` na quarta coluna, imprima as linhas. Veja que as elas atendem os critérios.
+
+### Slide 33
+
+No exemplo abaixo, três critérios são aplicados, sendo que os dois primeiros estão agrupados por parênteses. Para a terceira instrução ser executada,  uma das duas inicias agrupadas deve ser correspondida. Passo-a-passo, este código lê-se: Para as linhas da coluna 4 contendo `"SIX5"` **OU** `"STAT2"` **E** que tenham valores maiores que 300 na coluna 5, imprima as linhas.
+
+```bash
+awk '($4=="SIX5" || $4=="STAT2") && $5>300' tfbs.bed
+
+# chr19	40347918	40348201	STAT2	366	+
+# chr19	3713461	3713789	SIX5	471	+
+# chr11	45163370	45163819	STAT2	303	+
+```
+
+O exemplo a seguir é similar. Desta vez, algum valor da quinta coluna deverá ser menor que 35 **E** `"SREBP1" `**não** ` !` deve estar na quarta coluna. Veja que o caractere de negação foi utilizado para especificar valores da quarta coluna diferentes de `"SREBP1" `.
+
+```bash
+awk '$5<35 && $4!="SREBP1"' tfbs.bed 
+
+```
+
