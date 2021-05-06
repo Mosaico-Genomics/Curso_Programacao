@@ -1,4 +1,4 @@
-# bMódulo 1 - SED/AWK
+# Módulo 1 - SED/AWK
 
 ## Aula 2 - AWK  (25/05/2021)
 
