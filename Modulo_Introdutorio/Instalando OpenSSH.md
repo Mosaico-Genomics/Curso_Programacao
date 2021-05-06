@@ -89,7 +89,7 @@ Da mesma forma, para instalarmos o OpenSSH.Server, basta executarmos esse comand
 
 # Terminadas as instalações
 
-Após termos terminadas as instalações de *.Client* e *.Server*, verifique agora se tudo ocorreu bem e se eles estão presentes em seu computador:
+Após termos terminadas as instalações de *.Client* e *.Server*, verifique agora se tudo ocorreu bem e que eles estão presentes em seu computador:
 
 > Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 
