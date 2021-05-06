@@ -1,7 +1,7 @@
 # Listar
 Se você estiver se sentindo perdido, esse comando deve ser o primeiro a ser utilizado. Sua função principal é listar todos os arquivos e pastas no diretório que você está.
 uso: 
-> ls
+'''ls'''
 
 ![image](https://user-images.githubusercontent.com/58569730/116619927-82478800-a917-11eb-824d-2c804245d402.png)
 
