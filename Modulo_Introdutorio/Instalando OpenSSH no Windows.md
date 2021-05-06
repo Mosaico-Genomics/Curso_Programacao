@@ -15,7 +15,7 @@ O OpenSSH é é uma ferramenta de conectividade para login remoto que usa o prot
 sequestro de conexão e outros ataques. Portanto, devemos intalá=lo em nosso computador para termos acesso ao servidor.
 
 
-> Primeiro passo - Verificar se o OpenSSH já está presente em nossa máquina.
+> Verificar se o OpenSSH já está presente em nossa máquina.
 
 
 Vamos abrir o PowerShell como administrador usando o atalho: Windows+X
