@@ -41,8 +41,7 @@ Com o PowerShell aberto, vamos COPIAR e COLAR esse comando no nosso terminal.
 
 > Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 
-<div class="**ATENÇÃO**: Por padrão, o CTRL+V não funciona dentro do Terminal PowerShell. Após copiarmos um conteúdo com nosso CTRL+C, para colarmos dentro do PowerShell deveremos clicar com o BOTÃO DIREITO DO MOUSE.">
-  .text-red on white
+**ATENÇÃO**: Por padrão, o CTRL+V não funciona dentro do Terminal PowerShell. Após copiarmos um conteúdo com nosso CTRL+C, para colarmos dentro do PowerShell deveremos clicar com o BOTÃO DIREITO DO MOUSE.
  
 Assim o conteúdo será colado.
 
