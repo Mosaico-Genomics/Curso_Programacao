@@ -5,7 +5,7 @@ Antes de darmos inicio às atividades no servidor, caso você esteja usando Wind
 
 Para isso, precisaremos nos certivicar que o OpenSSH está instalado em nosso computador. 
 
-Este link levará diretamente para a página oficial da Microsoft com o tutorial de instalação para o Windows.
+Este link levará diretamente para a página oficial da Microsoft com o tutorial de instalação para o Windows caso não deseje seguir o tutorial a seguir.
 
 > https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
 
