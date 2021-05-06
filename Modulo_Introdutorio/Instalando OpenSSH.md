@@ -69,7 +69,7 @@ Se constar como **"Installed"**, sua tarefa aqui já terminou, caso contrário, 
 
 # Instalando o OpenSSH.Client
 
-Para instalarmos o OpenSSH.Clint, basta executarmos esse comando em nosso Terminal PowerShell:
+Para instalarmos o OpenSSH.Client, basta executarmos esse comando em nosso Terminal PowerShell:
 
 > Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 
