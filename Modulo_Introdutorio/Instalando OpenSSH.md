@@ -24,15 +24,16 @@ No nosso lado esquerdo aparecerá a seguinte aba:
 
 #adicionar o link da imagem#
 
-
 Clique agora em "Windows PowerShell (Admin)" - Isso faz com que o PowerShell seja executado no modo Administrador.
 
 
 **É DE EXTREMA IMPORTÂNCIA QUE O POWERSHELL ESTEJA NO MODO ADMIN, CASO CONTRÁRIO NENHUM PASSO ADIANTE PODERÁ SER EXECUTADO.**
 
-Após a ação anterior, essa tela irá aparecer. Agora você está dentro do Terminal PowerShell
+Após a ação anterior, essa tela irá aparecer: 
 
 #add imaagem#
+
+Pronto, agora você está dentro do Terminal PowerShell!
 
 
 # Verificando se o OpenSSH já está em seu computador.
