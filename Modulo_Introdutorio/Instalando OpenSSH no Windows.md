@@ -21,8 +21,8 @@ sequestro de conexão e outros ataques. Portanto, devemos intalá=lo em nosso co
 Vamos abrir o PowerShell como administrador usando o atalho: Windows+X
 No nosso lado esquerdo aparecerá a seguinte aba:
 
+![alt text](https://github.com/lcsfaria/Teste/blob/main/cbd4c2fd-98c1-45df-a78e-8609df65ed93.jpg)
 
-![alt text](https://github.com/lcsfaria/Teste/blob/main/7b7bd833-bc66-45a9-b4bc-ddea162cb8a6.jpg)
 
 Clique agora em "Windows PowerShell (Admin)" - Isso faz com que o PowerShell seja executado no modo Administrador.
 
@@ -31,7 +31,7 @@ Clique agora em "Windows PowerShell (Admin)" - Isso faz com que o PowerShell sej
 
 Após a ação anterior, essa tela irá aparecer: 
 
-#add imaagem#
+![alt text](https://github.com/lcsfaria/Teste/blob/main/7b7bd833-bc66-45a9-b4bc-ddea162cb8a6.jpg)
 
 Pronto, agora você está dentro do Terminal PowerShell!
 
