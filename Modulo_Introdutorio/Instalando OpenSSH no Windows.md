@@ -1,5 +1,8 @@
 # Primeiros passos para o acesso ao servidor.
 
+<div class="text-red mb-2">
+  .text-red on white
+
 Antes de darmos inicio às atividades no servidor, caso você esteja usando Windows, devemos nos certificar que nossa máquina está devidamente preparada para isso.
 
 Para isso, precisaremos nos certivicar que o OpenSSH está instalado em nosso computador. 
