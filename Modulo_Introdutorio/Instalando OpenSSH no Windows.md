@@ -22,7 +22,7 @@ Vamos abrir o PowerShell como administrador usando o atalho: Windows+X
 No nosso lado esquerdo aparecerá a seguinte aba:
 
 
-#adicionar o link da imagem#
+![alt text](https://github.com/lcsfaria/Teste/blob/main/7b7bd833-bc66-45a9-b4bc-ddea162cb8a6.jpg)
 
 Clique agora em "Windows PowerShell (Admin)" - Isso faz com que o PowerShell seja executado no modo Administrador.
 
