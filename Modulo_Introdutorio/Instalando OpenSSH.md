@@ -47,10 +47,6 @@ Assim o conteúdo será colado.
 
 Com o conteúdo colado, aperte ENTER para executá-lo.
 
-Após isso, a seguinte imagem aparecerá.
-
-# add imagem#
-
 Agora, duas mensagemns poderão aparecer:
 ```diff
 
