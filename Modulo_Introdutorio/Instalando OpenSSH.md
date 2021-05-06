@@ -52,12 +52,12 @@ Name  : OpenSSH.Server~~~~0.0.1.0
 State : NotPresent
 ```
 Ou
-
+```diff
 Name  : OpenSSH.Client~~~~0.0.1.0
 State : Installed
 Name  : OpenSSH.Server~~~~0.0.1.0
 State : Installed
-
+```
 É necessário que tanto **OpenSSH.Client** quanto **OpenSSH.Server** constem como **"Installed"**.
 
 Se constar como **"Installed"**, sua tarefa aqui já terminou, caso contrário, vamos continuar o nosso Tutorial.
