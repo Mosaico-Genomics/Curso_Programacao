@@ -28,6 +28,7 @@ Após digitar o comando e pressionar enter, você pode se deparar com a seguinte
 
 
 Basta digitar yes e essa mensagem não aparecerá mais. Por fim, você vai precisar digitar sua senha. Quando estiver digitando, não aparecerá nenhum caractere. Não se preocupe, é normal. Digite sua senha com calma e dê enter. Se tudo ocorrer bem, você verá que se conectou ao servidor. Deve se deparar com algo paracido com:
+
 ![image](https://user-images.githubusercontent.com/58569730/117374522-b258d300-aea3-11eb-9406-804ddb371e9c.png)
 
 Você pode ler mais a respeito  [no site oficial](https://www.openssh.com/) e também acessar a documentação de uso [aqui.](https://man.openbsd.org/ssh)
