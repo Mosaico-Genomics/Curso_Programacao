@@ -55,7 +55,7 @@ Após isso, uma tela de terminal aparecerá perguntando seu login e depois a sua
 Pronto, você está conectado no servidor.
 
 ## Estou no servidor. E agora?
-A primeira coisa que você deve ter em mente, é que nosso servidor, [assim como a maior parte de servidores _mainframes_ e supercomputadores](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems#Public_servers_on_the_Internet), utiliza linux. Portanto, uma vez dentro do servidor, utilize [comandos apropriados.](https://github.com/Mosaico-Genomics/Curso_Programacao/blob/main/Modulo_Introdutorio/ComandosLinux.md)
+A primeira coisa que você deve ter em mente, é que nosso servidor, [assim como a maior parte de servidores, _mainframes_ e supercomputadores](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems#Public_servers_on_the_Internet), utiliza linux. Portanto, uma vez dentro do servidor, utilize [comandos apropriados.](https://github.com/Mosaico-Genomics/Curso_Programacao/blob/main/Modulo_Introdutorio/ComandosLinux.md)
 Uma coisa que também devemos ficar atentos, o tempo de inatividade. Após determinado período sem utilizar o servidor, ele te deconectará, e no caso especifico do windows, o seu console vai travar e você fecha-lo e abrir um novo para poder se conectar de novo.
 
 ### Transferindo arquivos entre o servidor e o seu computador
