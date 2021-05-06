@@ -37,7 +37,7 @@ Este método assume que você tenha o `brew` instalado. Abra o terminal e instal
 ```bash
 brew install putty
 ```
-##U tilização
+## Utilização
 Uma vez instalado, vamos ver como utiliza-lo. O primeiro passo é abrir o programa.
 Em hostname, na categoria Session, coloque o endereço do servidor que você recebeu.
 
@@ -45,8 +45,7 @@ Em hostname, na categoria Session, coloque o endereço do servidor que você rec
 
 Clique em Open
 A seguinte mensagem aparecerá na primeira vez que você se conectar. Aceite
-
-![image](https://user-images.githubusercontent.com/58569730/117376433-7f184300-aea7-11eb-8c71-b0b1df73c36c.png)
+![image](https://user-images.githubusercontent.com/58569730/117377202-1cc04200-aea9-11eb-8437-6977e8d9edb8.png)
 
 Após isso, uma tela de terminal aparecerá perguntando seu login e depois a sua senha.
 
