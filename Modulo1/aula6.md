@@ -344,7 +344,127 @@ vcftools --vcf <file>
 
 ### Slide 36
 
+```bash
+vcftools --gzvcf eur.22.vcf.gz --hap-r2 --out eur.22.ld 
+
+# After filtering, kept 60 out of 60 Individuals
+# Outputting Pairwise LD (phased bi-allelic only)
+# After filtering, kept 101568 out of a possible 101568 Sites
+# Run Time =
 ```
 
+### Slide 37
+
+```bash
+vcftools --vcf <file>
+	--TsTv <integer> (tamanho do bin, loci bialélicos)
+	--TsTv-summary
+	--TsTv-by-count
+	--TsTv-by-qual
+```
+
+### Slide 38
+
+```bash
+vcftools --gzvcf eur.22.vcf.gz --TsTv-summary --out eur.22.tstv
+
+# After filtering, kept 60 out of 60 Individuals
+# Outputting Ts/Tv summary
+# Ts/Tv ratio: 2.265
+# After filtering, kept 101568 out of a possible 101568 Sites
+# Run Time = 1.00 seconds
+```
+
+### Slide 39
+
+```bash
+vcftools --vcf <file>
+	--relatedness / --relatedness2  
+	--missing-indv
+	--missing-site
+	--singletons (mapeamento, posição e indivíduo)
+```
+
+### Slide 40
+
+```bash
+vcftools --gzvcf eur.vcf.gz --missing-indv --out eur.22.missing
+
+# After filtering, kept 60 out of 60 Individuals
+# Outputting Individual Missingness
+# After filtering, kept 101568 out of a possible 101568 Sites
+# Run Time = 2.00 seconds
+```
+
+### Slide 41
+
+```bash
+vcftools --gzvcf eur.vcf.gz --relatedness --out eur.22.relatedness
+
+# After filtering, kept 60 out of 60 Individuals
+# Outputting Individual Relatedness
+		# Relatedness: Only using biallelic sites.
+# After filtering, kept 101568 out of a possible 101568 Sites
+# Run Time = 5.00 seconds
+```
+
+### Slide 42
+
+```bash
+vcftools --vcf <file>
+	--weir-fst-pop <filename> (lista de indíviduos de uma população)  
+	--fst-window-size <int> / --fst-window-step <int>
+	--het
+	--hardy
+	--LROH
+```
+
+### Slide 43
+
+```bash
+vcftools --gzvcf eur.vcf.gz --hardy --out eur.22.hardy
+
+# After filtering, kept 60 out of 60 Individuals
+# Outputting HWE statistics (but only for biallelic loci)
+#         HWE: Only using biallelic SNPs.
+# After filtering, kept 101568 out of a possible 101568 Sites
+# Run Time = 5.00 seconds
+```
+
+### Slide 44
+
+```bash
+vcftools --vcf <file>
+	--012
+	--IMPUTE
+	--ldhat / --ldhat-geno
+	--BEAGLE-GL / --BEAGLE-PL
+	--plink / --plink-tped / --chrom-map
+```
+
+### Slide 45
+
+```bash
+vcftools --gzvcf eur.22.vcf.gz --plink --out eur.22.plink
+
+# After filtering, kept 60 out of 60 Individuals
+# Writing PLINK PED and MAP files ...
+#         PLINK: Only outputting biallelic loci.
+# Done.
+# After filtering, kept 101568 out of a possible 101568 Sites
+# Run Time = 5.00 seconds
+```
+
+### Slide 46
+
+```bash
+vcf-merge <file1> <file2> | bgzip –c > <output>
+```
+
+### Slide 47
+
+```bash
+vcf-merge eur.22.15indv.recode.vcf.gz asia.22.15indv.recode.vcf.gz \
+| bgzip -c > eur_asia.22.vcf.gz
 ```
 
