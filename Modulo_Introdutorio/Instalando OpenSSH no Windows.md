@@ -1,7 +1,5 @@
 # Primeiros passos para o acesso ao servidor.
 
-<div class="text-red mb-2">
-  .text-red on white
 
 Antes de darmos inicio às atividades no servidor, caso você esteja usando Windows, devemos nos certificar que nossa máquina está devidamente preparada para isso.
 
@@ -40,6 +38,7 @@ Pronto, agora você está dentro do Terminal PowerShell!
 
 # Verificando se o OpenSSH já está em seu computador.
 
+
 Com o PowerShell aberto, vamos COPIAR e COLAR esse comando no nosso terminal. 
 
 > Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
@@ -74,6 +73,7 @@ Se constar como **"Installed"**, sua tarefa aqui já terminou, caso contrário, 
 
 # Instalando o OpenSSH.Client
 
+
 Para instalarmos o OpenSSH.Client, basta executarmos esse comando em nosso Terminal PowerShell:
 
 > Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
@@ -85,6 +85,7 @@ Terminada a instalação, podemos seguir para o próximo passo.
 
 # Instalando o OpenSSH.Server
 
+
 Da mesma forma, para instalarmos o OpenSSH.Server, basta executarmos esse comando em nosso Terminal PowerShell:
 
 > Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
@@ -93,6 +94,7 @@ Da mesma forma, para instalarmos o OpenSSH.Server, basta executarmos esse comand
 
 
 # Terminadas as instalações
+
 
 Após termos terminadas as instalações de *.Client* e *.Server*, verifique agora se tudo ocorreu bem e que eles estão presentes em seu computador:
 
