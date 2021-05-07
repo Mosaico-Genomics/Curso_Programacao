@@ -45,7 +45,7 @@ Uma maneira alternativa para instalar o VCFtools envolve o uso do repositório [
 
 O comando `git clone` realiza o *download* dos arquivos associados ao projeto/ferramenta VCFtools.
 
-Os comandos `./autogen.sh` e `./configure` permitem a criação e configuração de trechos do programa a ser instalado e os comandos `make` e `make install` foram suscintamente explicados no exemplo anterior.
+Os comandos `./autogen.sh` e `./configure` permitem a criação e configuração de trechos do programa a ser instalado e os comandos `make` e `make install` foram sucintamente explicados no *slide* anterior.
 
 > **Obs:** Pode ser necessário poderes de superusuário `sudo` para realizar a instalação.
 
@@ -69,9 +69,9 @@ Os comandos `./autogen.sh` e `./configure` permitem a criação e configuração
 #         vcftools-help@lists.sourceforge.net
 ```
 
-A execução do comando `./vcftools` ou `./vcftools --help` permite verificar se a instalação foi concluída com sucesso. O `./` deve ser utilizado quando o diretório onde se encontra o comando a ser executado não estiver presente no `$PATH` (lista de diretórios onde o sistema busca pelos executáveis). Assim, o `./` indica ao sistema para procurar o programa no diretório em que o usuário se encontra (instalação local). 
+A execução do comando `./vcftools` ou `./vcftools --help` permite verificar se a instalação foi concluída com sucesso. O `./` deve ser utilizado quando o diretório onde se encontra o comando a ser executado não estiver presente no `$PATH` (lista de diretórios onde o sistema busca pelos executáveis). O `./` indica ao sistema para procurar o programa no diretório em que o usuário se encontra (instalação local). 
 
->**Obs:** Nas aulas não é necessário o uso do `./` pois a instalação do VCFtools foi realizada de maneira global, ou seja, as pastas onde se encontram os executáveis estão presentes no `$PATH`.
+>**Obs:** Nas aulas não é necessário o uso do `./` pois a instalação do VCFtools foi realizada de maneira global, ou seja, as pastas onde  encontram-se os executáveis estão presentes no `$PATH`.
 
 ### Slide 12
 
@@ -90,6 +90,8 @@ vcftools --vcf snps.vcf
 ```
 
 O comando `vcftools --vcf <nome_do_arquivo>` permite ao usuário obter informações básicas sobre o arquivo VCF: número de indivíduos e loci presentes.
+
+Utilize `--vcf` para arquivos VCF não compactados e `--gzvcf` para arquivos compactados.
 
 ### Slide 13
 
@@ -124,17 +126,23 @@ vcftools --vcf <file>
 
 Filtros baseados na posição das variantes: 
 
-A expressão completa é composta por: `vcftools --vcf <nome_do_arquivo> --<filtro> <número ou nome_do_arquivo> --recode --out <nome_do_arquivo_saída>`
+`vcftools --vcf <nome_do_arquivo> --<filtro> <número ou nome_do_arquivo> --recode --out <nome_do_arquivo_saída>`
 
-`--chr` Filtra as variantes presentes no(s) cromossomo(s) indicado(s). 
+`--chr` Filtra as variantes presentes no(s) cromossomo(s) indicado(s).
+
 `--not-chr` Filtra as variantes que não estão presentes no(s) cromossomo(s) indicado(s).
+
 `--from-bp <posição_início> / --to-bp <posição_final>` Filtra as variantes presentes entre a posição de início e a posição final.
 > Devem ser utilizadas em conjunto com a *flag* `--chr`
+
 `--positions <nome_do_arquivo>` Seleciona as posições listadas no arquivo.
 `--exclude-positions <nome_do_arquivo>` Exclui as posições listadas no arquivo.
 > A lista de posições deve ser apresentar o cromossomo e a posição separados por tab, uma por linha.
+
 `--thin <inteiro>` Filtra a partir de uma distância mínima entre as variantes
+
 `--bed <nome_do_arquivo>` e `--exclude-bed <nome_do_arquivo>` Seleciona ou exclui um conjunto de variantes a partir de um arquivo [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
+
 `--mask <nome_do_arquivo>`, `--invert-mask <nome_do_arquivo>` e `--mask-min <inteiro>` Permitem filtrar o VCF a partir de uma sequência (*fasta-like*) de números.
 > No exemplo abaixo, as três primeiras variantes do cromossomo 1 seriam mantidas com `--mask` e excluídas com `--invertmask`; `--mask-min` permite indicar o valor de corte para o filtro (0 a 9).
 > \>chr1
