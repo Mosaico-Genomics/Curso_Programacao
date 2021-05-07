@@ -126,7 +126,8 @@ vcftools --vcf <file>
 
 Filtros baseados na posição das variantes: 
 
-`vcftools --vcf <nome_do_arquivo> --<filtro> <número ou nome_do_arquivo> --recode --out <nome_do_arquivo_saída>`
+**Comando:** `vcftools --vcf <nome_do_arquivo> --<filtro> <número ou nome_do_arquivo> --recode --out <nome_do_arquivo_saída>`
+
 
 `--chr` Filtra as variantes presentes no(s) cromossomo(s) indicado(s).
 
@@ -139,12 +140,14 @@ Filtros baseados na posição das variantes:
 `--exclude-positions <nome_do_arquivo>` Exclui as posições listadas no arquivo.
 > A lista de posições deve ser apresentar o cromossomo e a posição separados por tab, uma por linha.
 
-`--thin <inteiro>` Filtra a partir de uma distância mínima entre as variantes
+`--thin <inteiro>` Filtra a partir de uma distância mínima entre as variantes.
 
 `--bed <nome_do_arquivo>` e `--exclude-bed <nome_do_arquivo>` Seleciona ou exclui um conjunto de variantes a partir de um arquivo [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)
 
 `--mask <nome_do_arquivo>`, `--invert-mask <nome_do_arquivo>` e `--mask-min <inteiro>` Permitem filtrar o VCF a partir de uma sequência (*fasta-like*) de números.
-> No exemplo abaixo, as três primeiras variantes do cromossomo 1 seriam mantidas com `--mask` e excluídas com `--invertmask`; `--mask-min` permite indicar o valor de corte para o filtro (0 a 9).
+> No exemplo abaixo, as três primeiras variantes do cromossomo 1 seriam mantidas com `--mask` e excluídas com `--invertmask`; 
+>`--mask-min` permite indicar o valor de corte para o filtro (0 a 9).
+> 
 > \>chr1
 > 000111222
 
