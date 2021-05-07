@@ -129,6 +129,7 @@ Filtros baseados na posição das variantes:
 **Comando:** `vcftools --vcf <nome_do_arquivo> --<filtro> <número ou nome_do_arquivo> --recode --out <nome_do_arquivo_saída>`
 
 
+
 `--chr` Filtra as variantes presentes no(s) cromossomo(s) indicado(s).
 
 `--not-chr` Filtra as variantes que não estão presentes no(s) cromossomo(s) indicado(s).
@@ -149,6 +150,7 @@ Filtros baseados na posição das variantes:
 >`--mask-min` permite indicar o valor de corte para o filtro (0 a 9).
 > 
 > \>chr1
+> 
 > 000111222
 
 ### Slide 15
