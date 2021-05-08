@@ -13,7 +13,7 @@ cat toy_S1_L001_R1_001.fastq | wc -l | awk '{d=$1;print d/4}'
 # 25000
 ```
 
-No exemplo acima, o conteúdo do arquivo FASTQ é enviado para o `wc` que conta o número de linhas `-1`.  Esse número é passado como *input* para o `awk`, o qual armazena o primeiro campo contendo o valor `25000` na variável `d`. Por fim, o resultado da divisão de $2500 \div 4$ é impresso na saída padrão. Esse valor é o número de **sequências** no FASTQ, visto que cada sequência ocupa 4 linhas de acordo com esse formato.
+No exemplo acima, o conteúdo do arquivo FASTQ é enviado para o `wc` que conta o número de linhas `-1`.  Esse número é passado como *input* para o `awk`, o qual armazena o primeiro campo contendo o valor `25000` na variável `d`. Por fim, o resultado da divisão de 2500 :heavy_division_sign: 4​ é impresso na saída padrão. Esse valor é o número de **sequências** no FASTQ, visto que cada sequência ocupa 4 linhas de acordo com esse formato.
 
 ### Slide 29
 
