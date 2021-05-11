@@ -150,6 +150,12 @@ Remove as linhas do intervalo `,` de 2 a 4 de modo inclusivo, isto é, as linhas
 
 ```bash
 sed '2,4d' exemplo2.csv2
+
+# SYMBOL;ENTREZID;GENENAME;MAP
+# BIRC3;330;baculoviral IAP repeat containing 11q22.2
+# XIST;7503;X inactive specific transcript;Xq13.2
+# "UTY;7404;ubiquitously transcribed tetratricopeptide repeat containing, Y-linked;Yq11.221"
+# GAPDH;2597;glyceraldehyde-3-phosphate dehydrogenase;12p13.31
 ```
 
 Neste caso, 3 comandos de remoção são executados sequencialmente `;`. Desta forma, as linhas 1,3 e 5 serão removidas `d`. 
