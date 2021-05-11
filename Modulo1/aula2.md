@@ -62,7 +62,7 @@ awk '{print $1, $3, $4}' hgmd_brca1.txt
 
 O comando acima não faz nenhuma busca por padrões nas linhas do arquivo. Por outro lado, uma ação de imprimir é explicitamente fornecida. O caractere `$` significa um campo do arquivo (neste caso, e na maioria de arquivos de tabelas, esse campo é uma coluna). Por padrão, o GNU AWK procura por caractere(s) de espaço(s) e/ou tabulações e/ou marcador de fim de linha, e os utiliza como delimitador de campo. Note que, no arquivo acima, o primeiro campo, isto é -- a primeira coluna, foi impressa através do seu índice `$1`. Múltiplos campos são delimitados por vírgulas. Observe também que a ação está envolta em chaves `{}`.
 
-### Slide 11 
+### Slide 13 
 
 No exemplo abaixo, as colunas do arquivo são reordenadas apenas por trocar a ordem dos índices:
 
@@ -81,7 +81,7 @@ awk '{print $4, $1, $3}' hgmd_brca1.txt
 # [...]
 ```
 
-### Slide 13
+### Slide 16
 
 ```bash
 awk '{print $1, $7}' hgmd_brca1.txt
@@ -343,7 +343,7 @@ awk '{$6=$3-$2; print}' tfbs.bed
 # chr1 151714434 151714708 FOSL2 664 274
 # [...]
 ```
- 
+
 ### Slide 43
 
 O comando abaixo possui apenas uma instrução de imprimir seguida da variável interna `NF`. O AWK atribui o **número de campos** do arquivo a essa variável. Logo, ao solicitar sua impressão, ela mostra o número de campos/colunas por linha. Note que cada linha mostra um número diferente de colunas. Seria um erro? 
@@ -444,11 +444,58 @@ awk '{print NR,$0}' hgmd_brca1.txt
 # [...] 
 ```
 
+### Slide 51
+
+```bash
+awk -F'\t' '$4~/X/{print $4,$6}' hgmd_brca1.txt
+
+# Q12X Breast cancer
+# Q19X Breast and/or ovarian cancer
+# L30X Breast cancer
+# Q60X Breast and/or ovarian cancer
+# L63X Breast cancer
+# Q74X Breast cancer
+# Q81X Breast and/or ovarian cancer
+# Y101X Breast and/or ovarian cancer
+# Y130X Breast and/or ovarian cancer
+# E143X Breast and/or ovarian cancer
+# [...]
+```
+
+```bash
+awk -F'\t' 'NR==1 || $4~/X/{print $4,$6}' hgmd_brca1.txt
+
+# HGVS (protein) Phenotype
+# Q12X Breast cancer
+# Q19X Breast and/or ovarian cancer
+# L30X Breast cancer
+# Q60X Breast and/or ovarian cancer
+# L63X Breast cancer
+# Q74X Breast cancer
+# Q81X Breast and/or ovarian cancer
+# Y101X Breast and/or ovarian cancer
+# Y130X Breast and/or ovarian cancer
+# [...]
+```
+
+
+
 ### Slide 54
 
 ```bash
 awk -F'\t' 'NR>1{print $6}' hgmd_brca1.txt
 
+# Ovarian cancer
+# Breast cancer
+# Breast and/or ovarian cancer ?
+# Breast and/or ovarian cancer
+# Breast cancer
+# Breast cancer
+# Breast and/or ovarian cancer ?
+# Ovarian cancer
+# Breast cancer
+# Breast and/or ovarian cancer
+# [...]
 ```
 
 Para excluir o cabeçalho.
@@ -463,6 +510,8 @@ Imprima a primeira linha do arquivo com `head`:
 
 ```bash
 head -1 hgmd_brca1.txt
+
+# Accession Number	HGMD codon change	HGMD amino acid change	HGVS (protein)	HGVS (nucleotide)	Phenotype	Reference	Source
 ```
 
 Agora, utilize o utilitário `tr` para **substituir** todos os delimitadores de tabulação `\t` para novas linhas `\n`:
