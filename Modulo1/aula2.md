@@ -16,6 +16,8 @@ Estrutura básica de um comando do AWK. A primeira parte invoca o interpretador 
 
 ### Slide 8
 
+1. **Busca por correspondência (*pattern matching*)**
+
 ```bash
 awk '/Ovar/' hgmd_brca1.txt
 
@@ -43,6 +45,8 @@ Neste exemplo, o padrão a ser buscado pode conter tanto `O` maiúsculo quanto o
 
 ### Slide 11
 
+2. **Ação imprimir (*print*)**
+
 ```bash
 awk '{print $1, $3, $4}' hgmd_brca1.txt
 
@@ -60,7 +64,7 @@ awk '{print $1, $3, $4}' hgmd_brca1.txt
 # [...]
 ```
 
-O comando acima não faz nenhuma busca por padrões nas linhas do arquivo. Por outro lado, uma ação de imprimir é explicitamente fornecida. O caractere `$` significa um campo do arquivo (neste caso, e na maioria de arquivos de tabelas, esse campo é uma coluna). Por padrão, o GNU AWK procura por caractere(s) de espaço(s) e/ou tabulações e/ou marcador de fim de linha, e os utiliza como delimitador de campo. Note que, no arquivo acima, o primeiro campo, isto é -- a primeira coluna, foi impressa através do seu índice `$1`. Múltiplos campos são delimitados por vírgulas. Observe também que a ação está envolta em chaves `{}`.
+O comando acima não faz nenhuma busca por padrões nas linhas do arquivo. Por outro lado, uma ação de imprimir é explicitamente fornecida. O caractere `$` significa um campo do arquivo (neste caso, e na maioria de arquivos de tabelas, esse campo é uma coluna). Por padrão, o GNU AWK procura por caractere(s) de  e/ou **tabulações** e/ou **marcador de fim de linha**, e os utiliza como **delimitador de campo**. Note que, no arquivo acima, o primeiro campo, isto é -- a primeira coluna, foi impressa através do seu índice `$1`. Múltiplos campos são delimitados por vírgulas. Observe também que a ação está envolta por chaves `{}`.
 
 ### Slide 13 
 
@@ -99,7 +103,7 @@ awk '{print $1, $7}' hgmd_brca1.txt
 # [...]
 ```
 
-O comando acima exemplifica como é simples a **seleção de colunas** de um arquivo delimitado com o AWK. Neste caso, apenas as colunas`$1` e `$7` foram selecionadas e impressas na saída padrão. Repare que a segunda coluna tem como nome "amino", porém o conteúdo não condiz com o esperado.
+O comando acima exemplifica como é simples a **seleção de colunas** de um arquivo delimitado com o AWK. Neste caso, apenas as colunas `$1` e `$7` foram selecionadas e impressas na saída padrão. Repare que a segunda coluna tem como nome "amino", porém o conteúdo não condiz com o esperado.
 
 ### Slide 19
 
@@ -160,6 +164,8 @@ O comando acima busca por linhas contendo X maiúsculo e, em seguida, imprime as
 
 ### Slide 24
 
+3. **Busca por correspondência em campos/colunas específicos**
+
 ```bash
 awk '$4~/X/{print $4,$1}' hgmd_brca1.txt
 
@@ -176,7 +182,7 @@ awk '$4~/X/{print $4,$1}' hgmd_brca1.txt
 # [...]
 ```
 
-O comando acima **restringe** a busca na coluna 4. Isso é feito através da sintaxe `$4~//`,  onde lê-se: na coluna quatro `$4~` busque pelo padrão `X`. Embora a saída truncada [...] esteja igual a segunda do slide 21,  elas **não são iguais**. Para confirmar isso, inspecione as duas saídas na íntegra, ou conte o número de linhas de cada resultado utilizado este comando **adicional** após os comandos originais acima: `| wc -l` (conte as linhas `-l` da saída anterior redirecionada `|` ao utilitário ` wc`).  
+O comando acima **restringe** a busca na coluna 4. Isso é feito através da sintaxe `$4~/X/`,  onde lê-se: na coluna quatro `$4~` busque pelo padrão `X`. Embora a saída truncada `[...]` esteja igual a segunda do slide 21,  elas **não são iguais**. Para confirmar isso, inspecione as duas saídas **na íntegra**, ou conte o número de linhas de cada resultado utilizando este comando **adicional** após os comandos originais acima: `| wc -l` (conte as linhas `-l` da saída anterior redirecionada `|` ao utilitário ` wc`).  
 
 ### Slide 26
 
@@ -218,6 +224,8 @@ awk '!/X/{print $4}' hgmd_brca1.txt
 
 ### Slide 30
 
+4. **Operadores relacionais e booleanos (lógicos)**
+
 O AWK também permite múltiplos critérios para filtrar linhas. No exemplo abaixo, se algum dos valores da quarta coluna forem iguais `==` a `"JunD"` **E** algum valor da coluna 5 for maior `>` que 500, imprima todas as linhas. **Lembre-se, por padrão, se nenhuma ação for especificada, todas as linhas serão impressas**. Neste caso, todas as linhas obedecendo as regras anteriores são retornadas. 
 
 ```bash
@@ -248,6 +256,27 @@ awk '$4=="SIX5" || $4=="STAT2"' tfbs.bed
 
 No comando acima, para linhas contendo `"SIX5"` na quinta coluna **OU** `"STAT2"` na quarta coluna, imprima as linhas. Veja que as elas atendem os critérios.
 
+**Tabela 1** - Operadores booleanos/lógicos utilizados no AWK.
+
+| Operador | Descrição      |
+| -------- | -------------- |
+| `||`     | Lógico **OU**  |
+| `&&`     | Lógico **E**   |
+| `!`      | Lógico **NÃO** |
+
+**Tabela 2** - Operadores relacionais utilizados no AWK.
+
+| Operador | Descrição                 |
+| -------- | ------------------------- |
+| <        | Menor que                 |
+| >        | Maior que                 |
+| <=       | Menor ou igual a          |
+| >=       | Maior ou igual a          |
+| ==       | igual a                   |
+| !=       | **não** igual (diferente) |
+| ~        | corresponde a             |
+| !~       | **não** corresponde a     |
+
 ### Slide 33
 
 No exemplo abaixo, três critérios são aplicados, sendo que os dois primeiros estão agrupados por parênteses. Para a terceira instrução ser executada,  uma das duas inicias agrupadas deve ser correspondida. Passo-a-passo, este código lê-se: Para as linhas da coluna 4 contendo `"SIX5"` **OU** `"STAT2"` **E** que tenham valores maiores que 300 na coluna 5, imprima as linhas.
@@ -260,7 +289,7 @@ awk '($4=="SIX5" || $4=="STAT2") && $5>300' tfbs.bed
 # chr11	45163370	45163819	STAT2	303	+
 ```
 
-O exemplo a seguir é similar. Desta vez, algum valor da quinta coluna deverá ser menor que 35 **E** `"SREBP1" `**não** ` !` deve estar na quarta coluna. Veja que o caractere de negação foi utilizado para especificar valores da quarta coluna diferentes de `"SREBP1" `.
+O exemplo a seguir é similar. Desta vez, algum valor da quinta coluna deverá ser menor que 35 **E** `"SREBP1" ` **não** ` !` deve estar na quarta coluna. Veja que o caractere de negação foi utilizado para especificar valores da quarta coluna diferentes de `"SREBP1" `.
 
 ```bash
 awk '$5<35 && $4!="SREBP1"' tfbs.bed 
@@ -304,6 +333,21 @@ awk '{print $3-$2, $0}' tfbs.bed
 # 274 chr1	151714434	151714708	FOSL2	664	+
 ```
 
+
+
+**Tabela 3** - Operadores aritméticos no AWK.
+
+| Operador | Descrição     |
+| -------- | ------------- |
+| `+`      | Adição        |
+| `-`      | Subtração     |
+| `*`      | Multiplicação |
+| `/`      | Divisão       |
+| `%`      | Módulo        |
+| `^`      | Exponenciação |
+
+
+
 ### Slide 40
 
 Para **criar** uma nova coluna ou **substituir**, o símbolo de igual `=` funciona como operador de atribuição. 
@@ -345,6 +389,8 @@ awk '{$6=$3-$2; print}' tfbs.bed
 ```
 
 ### Slide 43
+
+5. **Contagem de campos/colunas**
 
 O comando abaixo possui apenas uma instrução de imprimir seguida da variável interna `NF`. O AWK atribui o **número de campos** do arquivo a essa variável. Logo, ao solicitar sua impressão, ela mostra o número de campos/colunas por linha. Note que cada linha mostra um número diferente de colunas. Seria um erro? 
 
@@ -425,6 +471,8 @@ awk '{print $(NF-1)}' hgmd_brca1.txt
 ```
 
 ### Slide 49
+
+7. **Número de linhas**
 
 A `$NR` é outra variável que armazena o número de cada linha (ou *record*) no arquivo. O código abaixo imprime esse número em uma **nova coluna** no início `$0 ` do arquivo.
 
@@ -546,4 +594,3 @@ head -1 hgmd_brca1.txt | tr '\t' '\n' | awk '{print NR, $0}'
 ```
 
 A operação anterior é muito útil antes de começar a trabalhar com um arquivo, especialmente se ele for muito grande para ser aberto em um processador de tabelas. Dessa forma, você pode inspecionar quais e quantos campos esse arquivo contém e quais deles você precisar manipular.
-
