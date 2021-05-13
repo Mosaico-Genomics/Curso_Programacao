@@ -260,9 +260,9 @@ No comando acima, para linhas contendo `"SIX5"` na quinta coluna **OU** `"STAT2"
 
 | Operador | Descrição      |
 | -------- | -------------- |
-| `||`     | Lógico **OU**  |
-| `&&`     | Lógico **E**   |
-| `!`      | Lógico **NÃO** |
+| \|\|     | Lógico **OU**  |
+| &&       | Lógico **E**   |
+| !        | Lógico **NÃO** |
 
 **Tabela 2** - Operadores relacionais utilizados no AWK.
 
@@ -339,12 +339,12 @@ awk '{print $3-$2, $0}' tfbs.bed
 
 | Operador | Descrição     |
 | -------- | ------------- |
-| `+`      | Adição        |
-| `-`      | Subtração     |
-| `*`      | Multiplicação |
-| `/`      | Divisão       |
-| `%`      | Módulo        |
-| `^`      | Exponenciação |
+| +        | Adição        |
+| -        | Subtração     |
+| *        | Multiplicação |
+| /        | Divisão       |
+| %        | Módulo        |
+| ^        | Exponenciação |
 
 
 
