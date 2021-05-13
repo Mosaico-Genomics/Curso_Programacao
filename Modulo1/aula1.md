@@ -199,7 +199,7 @@ sed -n '1p' aa_codons.txt
 # aminoacido	abreviatura_3-letras	abreviatura_1-letra	codons	tipo
 ```
 
-  Imprime **apenas** as linhas de 1 a 7 do arquivo, i.e, linhas ${1,2,3,4,5,6~\text{e}~7}$.
+  Imprime **apenas** as linhas de 1 a 7 do arquivo, i.e, linhas 1,2,3,4,5,6 e 7.
 
 ```bash
 sed -n '1,7p' aa_codons.txt
@@ -226,7 +226,7 @@ sed -n '1p;7p' aa_codons.txt
 
 6. **Transliteração**
 
-O argumento `y/` faz a transliteração dos caracteres da cadeia <u>fonte</u> pela cadeia de <u>destino</u>. Em termos mais simples, ele possibilita trocar caracteres e padrões.
+O argumento `y/` faz a transliteração dos caracteres da cadeia <u>fonte</u> pela cadeia de <u>destino</u>. Em termos mais simples, ele possibilita substituir caracteres.
 
 ```bash
 sed 'y/ACTG/actg/' fasta.fa
@@ -272,8 +272,8 @@ sed '/>/!y/ACTG/actg/' fasta.fa
 Para todas as linhas **não** contendo **>** `/>/!`
 transliterar `ACTG` por `actg`.
 
-O comando acima omitindo o `!`seria para **apenas** as linhas **contendo** **>**  `/>/`. 
-Logo, sem a parte inicial, isto é, removendo `/>/!` o comando seria executado em **todas** as linhas do arquivo.
+O comando acima omitindo o `!` seria para **apenas** as linhas **contendo** **>**  `/>/`. 
+Logo, sem a parte inicial, isto é, removendo `/>/!`, o comando seria executado em **todas** as linhas do arquivo.
 
 ### Slide 25
 
@@ -322,10 +322,11 @@ A linha acima executa dois comandos, o primeiro de substituição `s`, e o segun
 
 8. **Comandos em um *script***
 
-Além do encadeamento, múltiplos comandos em `sed` podem ser escritos em um *script* e invocados pela linha de comando. Isso facilita a leitura, manutenção, portabilidade e reutilização.
+Além do encadeamento, múltiplos comandos em `sed` podem ser escritos em um *script* e invocados pela linha de comando. Isso facilita a leitura, manutenção, portabilidade e reutilização do código.
 
 ```bash
 cat > script.sed
+
 nano script.sed
 ```
 
@@ -334,7 +335,7 @@ s/ATG/*ATG*/g
 /^>/d
 ```
 
-No primeiro bloco de código, um arquivo `script.sed` é criado no diretório de trabalho e, em seguida, aberto com o editor de texto `nano`.  
+No primeiro bloco de código, um arquivo `script.sed` é criado no diretório de trabalho e, em seguida, aberto com o editor de texto `nano`. 
 O segundo bloco contém o conteúdo do *script* sed com os 2 comandos desejados. Veja que eles são separados por quebras de linha.
 O próximo bloco invoca o sed com o argumento `-f`, seguido do arquivo `.sed` <sup>[1](#myfootnote1)</sup> contendo os comandos. 
 
