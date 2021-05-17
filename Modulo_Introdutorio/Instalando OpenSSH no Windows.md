@@ -3,7 +3,7 @@
 
 Antes de darmos inicio às atividades no servidor, caso você esteja usando Windows, devemos nos certificar que nossa máquina está devidamente preparada para isso.
 
-Para isso, precisaremos nos certivicar que o OpenSSH está instalado em nosso computador. 
+Para isso, precisaremos nos certificar que o OpenSSH está instalado em nosso computador. 
 
 Este link levará diretamente para a página oficial da Microsoft com o tutorial de instalação para o Windows caso não deseje seguir o tutorial a seguir.
 
