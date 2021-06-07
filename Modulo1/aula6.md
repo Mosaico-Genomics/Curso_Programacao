@@ -189,7 +189,7 @@ Neste exemplo, são selecionadas todas as variantes do cromossomo 61 entre a pos
 ### Slide 16
 
 ```bash
-vcftools --gzvcf snps.vcf.gz --chr 128 --recode -c | bgzip -c > snps.chr128.vcf.gz ; tabix –p vcf snps.chr128.vcf.gz
+vcftools --gzvcf snps.vcf.gz --chr 128 --recode -c | bgzip -c > snps.chr128.vcf.gz ; tabix -p vcf snps.chr128.vcf.gz
 ```
 
 Neste exemplo, demonstra-se como realizar uma sequência de comandos para filtrar e obter um arquivo compactado e indexado, usando uma única linha e sem a necessidade de arquivos intermediários.
