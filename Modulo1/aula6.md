@@ -103,7 +103,7 @@ Utilize `--vcf` para arquivos VCF não compactados e `--gzvcf` para arquivos com
 ```bash
 bgzip snps.vcf
 tabix -p vcf snps.vcf.gz
-ls –lht
+ls -lht
 
 # -rw-r--r--  1 giordanob Nativos 415K Jan 25 23:40 snps.vcf.gz
 # -rw-r--r--  1 giordanob Nativos  24K Jan 25 23:45 snps.vcf.gz.tbi
