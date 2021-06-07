@@ -385,7 +385,7 @@ Filtros baseados em genótipos
 ### Slide 24
 
 ```bash
-vcftools --vcf snps.vcf --min-meanDP 10 --hwe 0.05 --max-missing 0.1 --recode --out qc.snps
+vcftools --gzvcf snps.vcf.gz --min-meanDP 10 --hwe 0.05 --max-missing 0.1 --recode --out qc.snps
 
 # After filtering, kept 30 out of 30 Individuals
 # Outputting VCF file...
