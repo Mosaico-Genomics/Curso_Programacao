@@ -538,8 +538,8 @@ Estrutura: `vcftools --vcf <nome_do_arquivo_1> --diff <nome_do_arquivo_2> --diff
 ### Slide 30
 
 ```bash
-vcftools --gzvcf 30ind.eur.22.recode.vcf.gz \
---gzdiff 30ind.asia.22.recode.vcf.gz \
+vcftools --vcf 30ind.eur.22.recode.vcf \
+--gzdiff 30ind.asia.22.recode.vcf \
 --diff-site --out eur_asia_sites_diff
 
 # Comparing sites in VCF files...
