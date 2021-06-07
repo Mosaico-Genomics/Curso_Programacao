@@ -8,6 +8,9 @@ Neste documento estão disponíveis os códigos demonstrados nos slides da aula 
 
 A saída dos comandos é representada em forma de comentários (após #).
 
+Manual para o VCFTools: 
+http://vcftools.sourceforge.net/man_latest.html
+
 
 ### Slide 9
 
