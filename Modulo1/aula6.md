@@ -937,7 +937,7 @@ Neste exemplo, deseja-se converter o formato VCF ao formato ped/map do programa 
 ### Slide 46
 
 ```bash
-vcf-merge <file1> <file2> | bgzip –c > <output>
+vcf-merge <file1> <file2> | bgzip -c > <output>
 ```
 
 Rotina para unir dois arquivos VCF
