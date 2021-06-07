@@ -12,7 +12,7 @@ A saída dos comandos é representada em forma de comentários (após #).
 ### Slide 9
 
 ```bash
-wget http://sourceforge.net/projects/vcftools/files/vcftools_0.1.6.tar.gz/download –O vcftools_0.1.6.tar.gz
+wget http://sourceforge.net/projects/vcftools/files/vcftools_0.1.6.tar.gz/download -O vcftools_0.1.6.tar.gz
 
 tar xzvf vcftools_0.1.6.tar.gz
 cd vcftools_0.1.6
